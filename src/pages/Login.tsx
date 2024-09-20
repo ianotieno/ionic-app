@@ -33,7 +33,7 @@ const Login: React.FC=()=>{
             </IonHeader>
             <IonContent scrollY={false}>
                 <div className="ion-text-center ion-padding">
-                <img src={logo} alt="react" width={70} />
+                <img src={logo} alt="react" width={80} />
                 </div>
               <IonCard>
                 <IonCardContent>
