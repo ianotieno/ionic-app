@@ -1,7 +1,8 @@
-import { IonContent, IonHeader, IonMenu, IonPage, IonRouterOutlet, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonIcon, IonMenu, IonPage, IonRouterOutlet, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 import { Redirect, Route } from 'react-router';
 import List from './List';
+import { checkmarkDoneCircleOutline, personCircleOutline } from 'ionicons/icons';
 
 const Setting: React.FC = () => {
 
@@ -9,7 +10,13 @@ const Setting: React.FC = () => {
         <IonPage>
         <IonHeader>
             <IonToolbar>
-                <IonTitle>Setting</IonTitle>
+            <IonButtons slot="start">
+                    <IonBackButton defaultHref="/app/list"/>
+                </IonButtons>
+            <IonIcon icon={personCircleOutline} slot="end"/>
+                <IonTitle>
+                     
+                     Setting</IonTitle>
             </IonToolbar>
         </IonHeader>
         <IonContent className="ion-padding">
