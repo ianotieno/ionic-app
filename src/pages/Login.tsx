@@ -1,15 +1,21 @@
 import { IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar, useIonRouter } from "@ionic/react"
-import React from "react";
+import React, { useState } from "react";
 import {logInOutline, personCircleOutline} from 'ionicons/icons'
 import logo from '../assets/logo.png'
+import Intro from "../components/intro";
 const Login: React.FC=()=>{
     const router= useIonRouter();
+    const [introSeen,setIntroSeen]= useState(false);
     const doLogin=(event:any)=>{
         event.preventDefault();
         console.log('doLogin');
        // router.push('/home','root');
     }
-    return(
+    return( 
+        <>
+        {!introSeen ?(
+            <Intro/>
+        ):(
         <IonPage>
             <IonHeader>
                 <IonToolbar >
@@ -37,7 +43,8 @@ const Login: React.FC=()=>{
                 </IonCardContent>
                 </IonCard>
             </IonContent>
-        </IonPage>
+        </IonPage>)};
+        </>
     );
 };
 
