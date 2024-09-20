@@ -11,10 +11,13 @@ const Login: React.FC=()=>{
         console.log('doLogin');
        // router.push('/home','root');
     }
+    const finishIntro= async()=>{
+        console.log("finish")
+    }
     return( 
         <>
         {!introSeen ?(
-            <Intro/>
+            <Intro onFinish={finishIntro}/>
         ):(
         <IonPage>
             <IonHeader>
