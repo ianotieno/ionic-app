@@ -1,22 +1,32 @@
 import { IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar, useIonRouter } from "@ionic/react"
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {logInOutline, personCircleOutline} from 'ionicons/icons'
 import logo from '../assets/details-3.png'
 
 import Intros from "../components/Intros";
 import Intro from "../components/intro";
+import { Preferences } from "@capacitor/preferences";
 
+const INTRO_KEY='intro-seen';
 const Login: React.FC=()=>{
     const router= useIonRouter();
     const [introSeen,setIntroSeen]= useState(false);
+    useEffect(()=>{
+        const checkStorage=  async ()=>{
+        const seen = await Preferences.get({ key: INTRO_KEY });
+        console.log("seen value", seen);
+        setIntroSeen(seen.value === 'true');
+        }
+        checkStorage();
+    },[])
     const doLogin=(event:any)=>{
         event.preventDefault();
         console.log('doLogin');
        // router.push('/home','root');
     }
     const finishIntro = async()=>{
-        console.log("finish")
-        setIntroSeen(true)
+        console.log("finish");
+        setIntroSeen(true);
     }
     return( 
         <>
