@@ -10,7 +10,7 @@ import { Preferences } from "@capacitor/preferences";
 const INTRO_KEY='intro-seen';
 const Login: React.FC=()=>{
     const router= useIonRouter();
-    const [introSeen,setIntroSeen]= useState(false);
+    const [introSeen,setIntroSeen]= useState(true);
     useEffect(()=>{
         const checkStorage=  async ()=>{
         const seen = await Preferences.get({ key: INTRO_KEY });
@@ -27,6 +27,11 @@ const Login: React.FC=()=>{
     const finishIntro = async()=>{
         console.log("finish");
         setIntroSeen(true);
+        Preferences.set({key:INTRO_KEY, value:'true'});
+    };
+    const seeIntroAgain=()=>{
+        setIntroSeen(false);
+        Preferences.remove({key:INTRO_KEY})
     }
     return( 
         <>
@@ -56,8 +61,12 @@ const Login: React.FC=()=>{
                   <IonButton color={'secondary'} routerLink="/register" className="ion-margin-top" type="button" expand="block">
                   <IonIcon icon={personCircleOutline} slot="end"/>
                     Create Account</IonButton>
+                    <IonButton onClick={seeIntroAgain} fill="clear" size="small" color={'medium'}  className="ion-margin-top" type="button" expand="block">
+                  <IonIcon icon={personCircleOutline} slot="end"/>
+                    Watch Intro Again</IonButton>
                     </form>
                 </IonCardContent>
+                
                 </IonCard>
             </IonContent>
         </IonPage>)};
