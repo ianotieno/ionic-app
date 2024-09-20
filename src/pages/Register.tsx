@@ -1,4 +1,4 @@
-import { IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar } from "@ionic/react"
+import { IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar } from "@ionic/react"
 import { checkmarkDoneCircleOutline } from "ionicons/icons";
 import React from "react";
 const Register: React.FC=()=>{
@@ -10,6 +10,9 @@ const Register: React.FC=()=>{
         <IonPage>
         <IonHeader>
             <IonToolbar >
+                <IonButtons slot="start">
+                    <IonBackButton defaultHref="/"/>
+                </IonButtons>
                 <IonTitle>
                    Create Account
                 </IonTitle>
