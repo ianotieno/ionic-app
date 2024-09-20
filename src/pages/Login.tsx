@@ -53,7 +53,7 @@ const Login: React.FC=()=>{
                 </IonToolbar>
             </IonHeader>
             <IonContent scrollY={false} className="ion-padding">
-                <IonGrid>
+                <IonGrid fixed>
                     <IonRow className="ion-justify-content-center">
                         <IonCol size='12' sizeMd="8" sizeLg="6" sizeXl="4">
                             <div className="ion-text-center ion-padding">
@@ -64,7 +64,10 @@ const Login: React.FC=()=>{
                 </IonGrid>
               <IonCard>
                 <IonCardContent>
-                    <form onSubmit={doLogin}>
+                <IonGrid fixed>
+                    <IonRow className="ion-justify-content-center">
+                        <IonCol size='12' sizeMd="8" sizeLg="6" sizeXl="4">
+                        <form onSubmit={doLogin}>
                   <IonInput label="Email" type='email' placeholder="ianotieno23@gmail.com" fill="outline" labelPlacement="floating"></IonInput>
                   <IonInput className="ion-margin-top" label="Password" type='password' placeholder="Password" fill="outline" labelPlacement="floating"></IonInput>
                   <IonButton className="ion-margin-top" type="submit" color={'tertiary'} expand="block">
@@ -77,6 +80,8 @@ const Login: React.FC=()=>{
                   <IonIcon icon={personCircleOutline} slot="end"/>
                     Watch Intro Again</IonButton>
                     </form>
+                            </IonCol></IonRow></IonGrid>
+                    
                 </IonCardContent>
                 
                 </IonCard>

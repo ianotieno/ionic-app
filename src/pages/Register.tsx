@@ -1,4 +1,4 @@
-import { IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar, useIonRouter } from "@ionic/react"
+import { IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonPage, IonRow, IonTitle, IonToolbar, useIonRouter } from "@ionic/react"
 import { checkmarkDoneCircleOutline } from "ionicons/icons";
 import React, { useState } from "react";
 const Register: React.FC=()=>{
@@ -26,7 +26,10 @@ const Register: React.FC=()=>{
             
           <IonCard>
             <IonCardContent>
-                <form onSubmit={doRegister}>
+            <IonGrid fixed>
+                    <IonRow className="ion-justify-content-center">
+                        <IonCol size='12' sizeMd="8" sizeLg="6" sizeXl="4">
+                        <form onSubmit={doRegister}>
               <IonInput label="Email" type='email' placeholder="ianotieno23@gmail.com" fill="outline" labelPlacement="floating"></IonInput>
               <IonInput className="ion-margin-top" label="Password" type='password' placeholder="Password" fill="outline" labelPlacement="floating"></IonInput>
               <IonButton className="ion-margin-top" type="submit" color={'tertiary'} expand="block">
@@ -34,6 +37,8 @@ const Register: React.FC=()=>{
               Create Account</IonButton>
               
                 </form>
+                            </IonCol></IonRow></IonGrid>
+               
             </IonCardContent>
             </IonCard>
         </IonContent>
