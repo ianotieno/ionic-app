@@ -11,9 +11,9 @@ import './intros.css'
 interface ContainerProps{
     onFinish:()=>void;
 }
-const SwiperButtonNext =({Children}:any)=>{
+const SwiperButtonNext =({children}:any)=>{
     const swiper= useSwiper();
-    return<IonButton onClick={()=>swiper.slideNext()}>{Children}</IonButton>
+    return<IonButton onClick={()=>swiper.slideNext()}>{children}</IonButton>
 }
 const Intros: React.FC <ContainerProps>= ({onFinish}) => {
 
@@ -27,7 +27,6 @@ const Intros: React.FC <ContainerProps>= ({onFinish}) => {
             </IonText>
             <SwiperButtonNext>Next</SwiperButtonNext>
             </div>
-           
             </SwiperSlide>
             <SwiperSlide>
             <div className="ion-text-center ion-padding" >
@@ -35,7 +34,9 @@ const Intros: React.FC <ContainerProps>= ({onFinish}) => {
             <IonText>
                 <h3>Build Awesome Apps with Ionic Angular </h3>
             </IonText>
-            <SwiperButtonNext> Next </SwiperButtonNext>
+            <SwiperButtonNext> 
+                <IonText>Next</IonText>
+                </SwiperButtonNext>
             </div>
            
             </SwiperSlide>
