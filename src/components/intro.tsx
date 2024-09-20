@@ -6,7 +6,8 @@ interface ContainerProps{
     onFinish:()=>void;
 }
 const Intro: React.FC<ContainerProps>=()=>{
-   
+
+    return<div>test</div>;
     return(
         <Swiper>
             <SwiperSlide></SwiperSlide>

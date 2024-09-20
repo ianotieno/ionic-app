@@ -2,7 +2,10 @@ import { IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, Ion
 import React, { useState } from "react";
 import {logInOutline, personCircleOutline} from 'ionicons/icons'
 import logo from '../assets/logo.png'
+
+import Intros from "../components/Intros";
 import Intro from "../components/intro";
+
 const Login: React.FC=()=>{
     const router= useIonRouter();
     const [introSeen,setIntroSeen]= useState(false);
@@ -11,13 +14,14 @@ const Login: React.FC=()=>{
         console.log('doLogin');
        // router.push('/home','root');
     }
-    const finishIntro= async()=>{
+    const finishIntro = async()=>{
         console.log("finish")
+        setIntroSeen(true)
     }
     return( 
         <>
         {!introSeen ?(
-            <Intro onFinish={finishIntro}/>
+            <Intros onFinish={finishIntro}/>
         ):(
         <IonPage>
             <IonHeader>
