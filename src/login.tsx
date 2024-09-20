@@ -11,7 +11,7 @@ const Login: React.FC=()=>{
                 </IonToolbar>
             </IonHeader>
             <IonContent className="ion-padding">
-
+             ui goes here
             </IonContent>
         </IonPage>
     );
