@@ -7,7 +7,7 @@ const List: React.FC = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
-                    <IonButton fill="clear" slot="start" color={"light"}>
+                    <IonButton fill="clear" slot="start" color={"dark"}>
                         <IonMenuButton/>
                     </IonButton>
                     <IonTitle>List</IonTitle>
