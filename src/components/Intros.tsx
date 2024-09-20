@@ -11,7 +11,7 @@ import './intros.css'
 interface ContainerProps{
     onFinish:()=>void;
 }
-const SwiperButtonNext=({Children}:any)=>{
+const SwiperButtonNext =({Children}:any)=>{
     const swiper= useSwiper();
     return<IonButton onClick={()=>swiper.slideNext()}>{Children}</IonButton>
 }
@@ -21,7 +21,7 @@ const Intros: React.FC <ContainerProps>= ({onFinish}) => {
         <Swiper>
             <SwiperSlide>
                 <div className="ion-text-center ion-padding" >
-            <img src={details1} alt="react" width="80%" />
+            <img src={details1} alt="react"  />
             <IonText>
                 <h3>Build Awesome Apps with Ionic React</h3>
             </IonText>
@@ -31,7 +31,7 @@ const Intros: React.FC <ContainerProps>= ({onFinish}) => {
             </SwiperSlide>
             <SwiperSlide>
             <div className="ion-text-center ion-padding" >
-            <img src={details2} alt="react" />
+            <img src={details2} alt="react" width="80%"/>
             <IonText>
                 <h3>Build Awesome Apps with Ionic Angular </h3>
             </IonText>
