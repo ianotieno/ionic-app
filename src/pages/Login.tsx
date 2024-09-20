@@ -1,4 +1,4 @@
-import { IonCard, IonCardContent, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react"
+import { IonCard, IonCardContent, IonContent, IonHeader, IonInput, IonPage, IonTitle, IonToolbar } from "@ionic/react"
 import React from "react";
 const Login: React.FC=()=>{
     const doLogin=(event:any)=>{
@@ -8,16 +8,20 @@ const Login: React.FC=()=>{
     return(
         <IonPage>
             <IonHeader>
-                <IonToolbar color={'primary'}>
+                <IonToolbar color={'success'}>
                     <IonTitle>
-                        page Title
+                        MacAgutu
                     </IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent className="ion-padding">
             <IonCard>
                 <IonCardContent>
-                    TEST
+                    <form onSubmit={doLogin}>
+                  <IonInput label="Email" type='email' placeholder="ianotieno23@gmail.com" fill="outline" labelPlacement="floating"></IonInput>
+                  <IonInput label="Password" type='password' placeholder="Password" fill="outline" labelPlacement="floating"></IonInput>
+                  
+                    </form>
                 </IonCardContent>
             </IonCard>
             </IonContent>
