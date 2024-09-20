@@ -1,4 +1,4 @@
-import { IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar, useIonRouter } from "@ionic/react"
+import { IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar, useIonLoading, useIonRouter } from "@ionic/react"
 import React, { useEffect, useState } from "react";
 import {logInOutline, personCircleOutline} from 'ionicons/icons'
 import logo from '../assets/details-3.png'
@@ -11,6 +11,7 @@ const INTRO_KEY='intro-seen';
 const Login: React.FC=()=>{
     const router= useIonRouter();
     const [introSeen,setIntroSeen]= useState(true);
+    const [present,dismiss]= useIonLoading();
     useEffect(()=>{
         const checkStorage=  async ()=>{
         const seen = await Preferences.get({ key: INTRO_KEY });
@@ -19,10 +20,15 @@ const Login: React.FC=()=>{
         }
         checkStorage();
     },[])
-    const doLogin=(event:any)=>{
+    const doLogin= async (event:any)=>{
         event.preventDefault();
         console.log('doLogin');
-       // router.push('/home','root');
+       await present("Logging in..");
+       setTimeout(async()=>{
+        dismiss();
+        router.push('/app','forward');
+       },2000)
+      
     }
     const finishIntro = async()=>{
         console.log("finish");
