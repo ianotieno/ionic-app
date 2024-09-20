@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react"
+import { IonCard, IonCardContent, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react"
 import React from "react";
 const Login: React.FC=()=>{
     const doLogin=(event:any)=>{
@@ -15,7 +15,11 @@ const Login: React.FC=()=>{
                 </IonToolbar>
             </IonHeader>
             <IonContent className="ion-padding">
-             ui goes here
+            <IonCard>
+                <IonCardContent>
+                    TEST
+                </IonCardContent>
+            </IonCard>
             </IonContent>
         </IonPage>
     );
