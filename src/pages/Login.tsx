@@ -10,7 +10,7 @@ const Login: React.FC=()=>{
     return(
         <IonPage>
             <IonHeader>
-                <IonToolbar color={'success'}>
+                <IonToolbar >
                     <IonTitle>
                         MacAgutu School For Coding
                     </IonTitle>
@@ -18,9 +18,9 @@ const Login: React.FC=()=>{
             </IonHeader>
             <IonContent>
                 <div className="ion-text-center ion-padding">
-                <img src={logo} alt="react" width={70} />
+                <img src={logo} alt="react" />
                 </div>
-            <IonCard>
+              <IonCard>
                 <IonCardContent>
                     <form onSubmit={doLogin}>
                   <IonInput label="Email" type='email' placeholder="ianotieno23@gmail.com" fill="outline" labelPlacement="floating"></IonInput>
@@ -33,7 +33,7 @@ const Login: React.FC=()=>{
                     Create Account</IonButton>
                     </form>
                 </IonCardContent>
-            </IonCard>
+                </IonCard>
             </IonContent>
         </IonPage>
     );
