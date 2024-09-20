@@ -1,6 +1,7 @@
 import { IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar } from "@ionic/react"
 import React from "react";
-import {logInOutline} from 'ionicons/icons'
+import {logInOutline, personCircleOutline} from 'ionicons/icons'
+import logo from '../assets/logo.png'
 const Login: React.FC=()=>{
     const doLogin=(event:any)=>{
         event.preventDefault();
@@ -15,7 +16,10 @@ const Login: React.FC=()=>{
                     </IonTitle>
                 </IonToolbar>
             </IonHeader>
-            <IonContent className="ion-padding">
+            <IonContent>
+                <div className="ion-text-center ion-padding">
+                <img src={logo} alt="react" width={70} />
+                </div>
             <IonCard>
                 <IonCardContent>
                     <form onSubmit={doLogin}>
@@ -24,7 +28,9 @@ const Login: React.FC=()=>{
                   <IonButton className="ion-margin-top" type="submit" color={'tertiary'} expand="block">
                     <IonIcon icon={logInOutline} slot="end"/>
                     Login</IonButton>
-                  <IonButton color={'secondary'} routerLink="/register" className="ion-margin-top" type="button" expand="block">Create Account</IonButton>
+                  <IonButton color={'secondary'} routerLink="/register" className="ion-margin-top" type="button" expand="block">
+                  <IonIcon icon={personCircleOutline} slot="end"/>
+                    Create Account</IonButton>
                     </form>
                 </IonCardContent>
             </IonCard>
