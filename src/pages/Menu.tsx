@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonItem, IonMenu, IonMenuToggle, IonPage, IonRouterOutlet, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonItem, IonMenu, IonMenuToggle, IonPage, IonRouterOutlet, IonSplitPane, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 import { Redirect, Route } from 'react-router';
 import List from './List';
@@ -12,6 +12,7 @@ const Menu: React.FC = () => {
   ]
     return (
         <IonPage>
+            <IonSplitPane contentId='main' when="sm">
             <IonMenu contentId='main'>
                 <IonHeader>
                     <IonToolbar color={'primary'}>
@@ -35,6 +36,7 @@ const Menu: React.FC = () => {
                 <Redirect to="/app/list"/>
             </Route>
             </IonRouterOutlet>
+            </IonSplitPane>
         </IonPage>
     );
 };
