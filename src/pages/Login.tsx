@@ -1,7 +1,7 @@
 import { IonButton, IonCard, IonCardContent, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonPage, IonRow, IonTitle, IonToolbar, useIonLoading, useIonRouter } from "@ionic/react"
 import React, { useEffect, useState } from "react";
 import {logInOutline, personCircleOutline} from 'ionicons/icons'
-import logo from '../assets/details-3.png'
+import logo from '../assets/details-5.png'
 
 import Intros from "../components/Intros";
 import Intro from "../components/intro";
@@ -54,17 +54,14 @@ const Login: React.FC=()=>{
             </IonHeader>
             <IonContent scrollY={false} className="ion-padding">
                 <IonGrid>
-                    <IonRow>
-                        <IonCol>
+                    <IonRow className="ion-justify-content-center">
+                        <IonCol size='12' sizeMd="8" sizeLg="6" sizeXl="4">
                             <div className="ion-text-center ion-padding">
-                            <img src={logo} alt="react" width={120} />
+                            <img src={logo} alt="react" width={85} />
                             </div>
                         </IonCol>
                     </IonRow>
                 </IonGrid>
-                <div className="ion-text-center ion-padding">
-               
-                </div>
               <IonCard>
                 <IonCardContent>
                     <form onSubmit={doLogin}>
