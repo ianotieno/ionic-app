@@ -1,4 +1,4 @@
-import { IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar, useIonLoading, useIonRouter } from "@ionic/react"
+import { IonButton, IonCard, IonCardContent, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonPage, IonRow, IonTitle, IonToolbar, useIonLoading, useIonRouter } from "@ionic/react"
 import React, { useEffect, useState } from "react";
 import {logInOutline, personCircleOutline} from 'ionicons/icons'
 import logo from '../assets/details-3.png'
@@ -52,9 +52,18 @@ const Login: React.FC=()=>{
                     </IonTitle>
                 </IonToolbar>
             </IonHeader>
-            <IonContent scrollY={false}>
+            <IonContent scrollY={false} className="ion-padding">
+                <IonGrid>
+                    <IonRow>
+                        <IonCol>
+                            <div className="ion-text-center ion-padding">
+                            <img src={logo} alt="react" width={120} />
+                            </div>
+                        </IonCol>
+                    </IonRow>
+                </IonGrid>
                 <div className="ion-text-center ion-padding">
-                <img src={logo} alt="react" width={80} />
+               
                 </div>
               <IonCard>
                 <IonCardContent>
