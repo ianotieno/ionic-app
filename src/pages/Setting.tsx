@@ -7,8 +7,15 @@ const Setting: React.FC = () => {
 
     return (
         <IonPage>
-            
-        </IonPage>
+        <IonHeader>
+            <IonToolbar>
+                <IonTitle>Setting</IonTitle>
+            </IonToolbar>
+        </IonHeader>
+        <IonContent className="ion-padding">
+            UI goes here...
+        </IonContent>
+    </IonPage>
         
     );
 };
