@@ -1,10 +1,12 @@
-import { IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar } from "@ionic/react"
+import { IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar, useIonRouter } from "@ionic/react"
 import { checkmarkDoneCircleOutline } from "ionicons/icons";
 import React from "react";
 const Register: React.FC=()=>{
+    const router= useIonRouter();
     const doRegister=(event:any)=>{
         event.preventDefault();
         console.log('doLogin');
+        router.goBack();
     }
     return(
         <IonPage>
@@ -18,7 +20,7 @@ const Register: React.FC=()=>{
                 </IonTitle>
             </IonToolbar>
         </IonHeader>
-        <IonContent>
+        <IonContent scrollY={false}>
             
           <IonCard>
             <IonCardContent>

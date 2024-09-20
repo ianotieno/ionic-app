@@ -1,11 +1,13 @@
-import { IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar } from "@ionic/react"
+import { IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar, useIonRouter } from "@ionic/react"
 import React from "react";
 import {logInOutline, personCircleOutline} from 'ionicons/icons'
 import logo from '../assets/logo.png'
 const Login: React.FC=()=>{
+    const router= useIonRouter();
     const doLogin=(event:any)=>{
         event.preventDefault();
         console.log('doLogin');
+       // router.push('/home','root');
     }
     return(
         <IonPage>
@@ -16,7 +18,7 @@ const Login: React.FC=()=>{
                     </IonTitle>
                 </IonToolbar>
             </IonHeader>
-            <IonContent>
+            <IonContent scrollY={false}>
                 <div className="ion-text-center ion-padding">
                 <img src={logo} alt="react" />
                 </div>
