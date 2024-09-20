@@ -1,20 +1,30 @@
-import { IonContent, IonHeader, IonMenu, IonPage, IonRouterOutlet, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonItem, IonMenu, IonPage, IonRouterOutlet, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 import { Redirect, Route } from 'react-router';
 import List from './List';
 import Setting from './Setting';
+import { homeOutline, newspaperOutline } from 'ionicons/icons';
 
 const Menu: React.FC = () => {
-
+  const paths=[
+    {name:'Home',url:'/app/list',icon:homeOutline},
+    {name:'Settings',url:'/app/settings',icon:newspaperOutline},
+  ]
     return (
         <IonPage>
             <IonMenu contentId='main'>
                 <IonHeader>
-                    <IonToolbar>
+                    <IonToolbar color={'primary'}>
                   <IonTitle>Menu</IonTitle> 
                     </IonToolbar>
                 </IonHeader>
-                <IonContent className='ion-padding'>Menu Items</IonContent>
+                <IonContent >
+                    {paths.map((item,index)=>(
+                        <IonItem routerLink={item.url} key={index}>
+                            {item.name}
+                        </IonItem>
+                    ))}
+                </IonContent>
             </IonMenu>
             <IonRouterOutlet id='main'>
             <Route exact path="/app/list" component={List}/>
