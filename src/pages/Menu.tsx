@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonIcon, IonItem, IonMenu, IonMenuToggle, IonPage, IonRouterOutlet, IonSplitPane, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonContent, IonHeader, IonIcon, IonItem, IonMenu, IonMenuToggle, IonPage, IonRouterOutlet, IonSplitPane, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 import { Redirect, Route } from 'react-router';
 import List from './List';
@@ -29,10 +29,10 @@ const Menu: React.FC = () => {
                         </IonMenuToggle>
                     ))}
                     <IonMenuToggle  autoHide={false}>
-                        <IonItem detail={false} routerLink="/" routerDirection='root'>
+                        <IonButton expand='full' routerLink="/" routerDirection='root' color={"tertiary"}>
                             <IonIcon slot='start' icon={logOutOutline}/>
                            Logout
-                        </IonItem>
+                        </IonButton>
                         </IonMenuToggle>
                 </IonContent>
             </IonMenu>
