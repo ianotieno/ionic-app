@@ -1,14 +1,14 @@
-import { IonContent, IonHeader, IonItem, IonMenu, IonMenuToggle, IonPage, IonRouterOutlet, IonSplitPane, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonIcon, IonItem, IonMenu, IonMenuToggle, IonPage, IonRouterOutlet, IonSplitPane, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 import { Redirect, Route } from 'react-router';
 import List from './List';
 import Setting from './Setting';
-import { homeOutline, newspaperOutline } from 'ionicons/icons';
+import { cog, homeOutline, newspaperOutline } from 'ionicons/icons';
 
 const Menu: React.FC = () => {
   const paths=[
     {name:'Home',url:'/app/list',icon:homeOutline},
-    {name:'Settings',url:'/app/settings',icon:newspaperOutline},
+    {name:'Settings',url:'/app/settings',icon:cog},
   ]
     return (
         <IonPage>
@@ -23,6 +23,7 @@ const Menu: React.FC = () => {
                     {paths.map((item,index)=>(
                         <IonMenuToggle key={index}>
                         <IonItem routerLink={item.url} key={index}>
+                            <IonIcon slot='start' icon={item.icon}/>
                             {item.name}
                         </IonItem>
                         </IonMenuToggle>
