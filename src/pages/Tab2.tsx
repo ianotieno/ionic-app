@@ -1,8 +1,11 @@
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import React from 'react';
+import { CreateAnimation, IonButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, useIonViewDidEnter } from '@ionic/react';
+import React, { useRef } from 'react';
 
 const Tab2: React.FC = () => {
-
+const animationRef = useRef<CreateAnimation>(null);
+useIonViewDidEnter(()=>{
+    animationRef.current?.animation.play();
+})
     return (
         <IonPage>
             <IonHeader>
@@ -14,7 +17,21 @@ const Tab2: React.FC = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent className="ion-padding">
-                UI goes here...
+               <CreateAnimation
+               ref={animationRef}
+               duration={2000}
+               iterations={Infinity}
+               delay={1000}
+               keyframes={[
+                {offset:0, transform:'scale(1)',opacity:'1'},
+                {offset:0.5, transform:'scale(1.5)',opacity:'0.5'},
+                {offset:1, transform:'scale(1)',opacity:'1'},
+               ]}
+               >
+                <IonButton expand='block' color={'tertiary'} className="ion-margin">
+                  Join MacAgutu Community
+                </IonButton>
+               </CreateAnimation>
             </IonContent>
         </IonPage>
     );
