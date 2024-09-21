@@ -1,10 +1,12 @@
-import { IonButton, IonButtons, IonCard, IonCardContent, IonItem, IonLabel, IonIcon, IonMenuButton, IonPage, IonSearchbar, IonTitle, IonToolbar, useIonViewWillEnter, IonHeader, IonContent, IonAvatar, IonImg } from '@ionic/react';
+import { IonButton, IonButtons, IonCard, IonCardContent, IonItem, IonLabel, IonIcon, IonMenuButton, IonPage, IonSearchbar, IonTitle, IonToolbar, useIonViewWillEnter, IonHeader, IonContent, IonAvatar, IonImg, IonChip, useIonAlert, useIonToast } from '@ionic/react';
 import { trashBinOutline } from 'ionicons/icons';
 import React, { useState } from 'react';
 
 const List: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true);
     const [users, setUsers] = useState<any[]>([]);
+    const [showAlert]=useIonAlert();
+    const [showToast]= useIonToast();
 
     useIonViewWillEnter(() => {
         const fetchUsers = async () => {
@@ -24,7 +26,21 @@ const List: React.FC = () => {
     };
 
     const clearList = () => {
-        setUsers([]); // Clear the users list
+       showAlert({
+        header:'Confirm!',
+        message:'Are you sure you want to Clear trainers',
+        buttons:[
+            {text:'Cancel',role:'cancel'},
+            {text:'Clear',handler:()=>{
+                setUsers([]);
+                showToast({
+                    message:'All trainers are cleared',
+                    duration: 2000,
+                    color: 'danger'
+                })
+            }}
+        ]
+       })
     };
 
     return (
@@ -34,7 +50,7 @@ const List: React.FC = () => {
                     <IonButton fill="clear" slot="start" color="dark">
                         <IonMenuButton />
                     </IonButton>
-                    <IonTitle>List</IonTitle>
+                    <IonTitle>Meet Our Trainers</IonTitle>
                     <IonButtons slot="end">
                         <IonButtons onClick={clearList}>
                             <IonIcon slot="icon-only" icon={trashBinOutline} />
@@ -47,21 +63,22 @@ const List: React.FC = () => {
             </IonHeader>
             <IonContent>
                 {loading ? (
-                    <p>Loading...</p> // Display loading state
+                    <p>Loading Teachers...</p> // Display loading state
                 ) : (
                     users.map((user, index) => (
                         <IonCard key={index}>
-                            <IonCardContent>
+                            <IonCardContent className='ion-no-padding'>
                                 <IonItem lines='none'>
                                     <IonAvatar slot='start'>
                                         <IonImg src={user.user.picture.thumbnail}/>
                                     </IonAvatar>
-                                    <IonLabel>
+                                    <IonLabel >
                                         {user.user.name.first} {user.user.name.last}
-                                        <p>
+                                        <p style={{ fontSize: '10px' }}>
                                         {user.user.email}
                                         </p>
                                     </IonLabel>
+                                    <IonChip color={"tertiary"}>{user.user.gender}</IonChip>
                                 </IonItem>
                             </IonCardContent>
                         </IonCard>
