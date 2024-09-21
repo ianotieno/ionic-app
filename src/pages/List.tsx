@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonCard, IonCardContent, IonItem, IonLabel, IonIcon, IonMenuButton, IonPage, IonSearchbar, IonTitle, IonToolbar, useIonViewWillEnter, IonHeader, IonContent, IonAvatar, IonImg, IonChip, useIonAlert, useIonToast, useIonLoading, IonRefresher, IonRefresherContent } from '@ionic/react';
+import { IonButton, IonButtons, IonCard, IonCardContent, IonItem, IonLabel, IonIcon, IonMenuButton, IonPage, IonSearchbar, IonTitle, IonToolbar, useIonViewWillEnter, IonHeader, IonContent, IonAvatar, IonImg, IonChip, useIonAlert, useIonToast, useIonLoading, IonRefresher, IonRefresherContent, IonSkeletonText } from '@ionic/react';
 import { trashBinOutline } from 'ionicons/icons';
 import React, { useState } from 'react';
 
@@ -70,6 +70,26 @@ const List: React.FC = () => {
                 <IonRefresher slot='fixed' onIonRefresh={(ev)=>doRefresh(ev)}>
                     <IonRefresherContent/>
                 </IonRefresher>
+                {loading && (
+                    [...Array(10)].map((_,index)=>(
+                        <IonCard key={index}>
+                            <IonCardContent className='ion-no-padding'>
+                                <IonItem lines='none'>
+                                    <IonAvatar slot='start'>
+                                        <IonSkeletonText/>
+                                    </IonAvatar>
+                                    <IonLabel >
+                                       <IonSkeletonText animated style={{width:'150px'}}/>
+                                        <p style={{ fontSize: '10px' }}>
+                                        <IonSkeletonText/>
+                                        </p>
+                                    </IonLabel>
+                                    <IonChip color={"tertiary"}></IonChip>
+                                </IonItem>
+                            </IonCardContent>
+                        </IonCard>
+                    ))
+                    )}
                 {
                     users.map((user, index) => (
                         <IonCard key={index}>
@@ -79,7 +99,7 @@ const List: React.FC = () => {
                                         <IonImg src={user.user.picture.thumbnail}/>
                                     </IonAvatar>
                                     <IonLabel >
-                                        {user.user.name.first} {user.user.name.last}
+                                        {user.user.name.title} {user.user.name.first} {user.user.name.last}
                                         <p style={{ fontSize: '10px' }}>
                                         {user.user.email}
                                         </p>
