@@ -119,9 +119,13 @@ const List: React.FC = () => {
                         </IonCard>
                     ))
                 }
-                <IonModal breakpoints={[0,0.5,0.8]} initialBreakpoint={0.5}
-                ref={model} isOpen={ selectedUser!== null} 
-                onIonModalDidDismiss={()=>selectedUser!== null} >
+                <IonModal
+  breakpoints={[0, 0.5, 0.8]}
+  initialBreakpoint={0.5}
+  ref={model}
+  isOpen={selectedUser !== null}
+  onIonModalDidDismiss={() => setSelectedUser(null)} 
+>
                     <IonHeader>
                         <IonToolbar>
                             <IonButtons slot="start">
@@ -141,14 +145,28 @@ const List: React.FC = () => {
                     <IonContent className='ion-padding'>
                         {activeSegement === 'details' &&(
                             <IonCard>
-                                <IonAvatar slot='start'>
-                                <IonImg src={selectedUser?.user.picture.thumbnail}/>
-                                </IonAvatar>
+                               
                                <IonCardContent className='ion-no-padding'>
+                                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '1rem' }}>
+                                <IonAvatar  >
+                                <IonImg src={selectedUser?.user.picture.large}/>
+                                </IonAvatar>
+                                </div>
+                               
                                <IonItem lines='none'>
+                               
                                 <IonLabel class='ion-text-wrap'>
-                                {selectedUser?.user.name.first} {selectedUser?.user.name.last}
-                                <p> {selectedUser?.user.email}</p>
+                                More Infor about your teacher
+                               <ul> 
+
+                                <li><p> Email:{selectedUser?.user.email}</p></li>
+                                <li><p> Cell:{selectedUser?.user.cell}</p></li>
+                                <li><p> City:{selectedUser?.user.location.city}</p></li>
+                                <li><p> state:{selectedUser?.user.location.state}</p></li>
+                                <li><p> Street:{selectedUser?.user.location.street}</p></li>
+                                
+                               </ul>
+
                                 </IonLabel>
                                </IonItem>
                                </IonCardContent>
