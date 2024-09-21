@@ -113,7 +113,9 @@ const List: React.FC = () => {
                         </IonCard>
                     ))
                 }
-                <IonModal ref={model} isOpen={ selectedUser!== null} onIonModalDidDismiss={()=>selectedUser!== null} >
+                <IonModal breakpoints={[0,0.5,0.8]} initialBreakpoint={0.5}
+                ref={model} isOpen={ selectedUser!== null} 
+                onIonModalDidDismiss={()=>selectedUser!== null} >
                     <IonHeader>
                         <IonToolbar>
                             <IonButtons slot="start">
