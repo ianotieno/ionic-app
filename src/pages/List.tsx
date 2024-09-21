@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonCard, IonCardContent, IonItem, IonLabel, IonIcon, IonMenuButton, IonPage, IonSearchbar, IonTitle, IonToolbar, useIonViewWillEnter, IonHeader, IonContent, IonAvatar, IonImg, IonChip, useIonAlert, useIonToast } from '@ionic/react';
+import { IonButton, IonButtons, IonCard, IonCardContent, IonItem, IonLabel, IonIcon, IonMenuButton, IonPage, IonSearchbar, IonTitle, IonToolbar, useIonViewWillEnter, IonHeader, IonContent, IonAvatar, IonImg, IonChip, useIonAlert, useIonToast, useIonLoading, IonRefresher, IonRefresherContent } from '@ionic/react';
 import { trashBinOutline } from 'ionicons/icons';
 import React, { useState } from 'react';
 
@@ -7,7 +7,7 @@ const List: React.FC = () => {
     const [users, setUsers] = useState<any[]>([]);
     const [showAlert]=useIonAlert();
     const [showToast]= useIonToast();
-
+   
     useIonViewWillEnter(() => {
         const fetchUsers = async () => {
             const users = await getUsers();
@@ -28,7 +28,7 @@ const List: React.FC = () => {
     const clearList = () => {
        showAlert({
         header:'Confirm!',
-        message:'Are you sure you want to Clear trainers',
+        message:'Are you sure you want to clear the list of trainers',
         buttons:[
             {text:'Cancel',role:'cancel'},
             {text:'Clear',handler:()=>{
@@ -42,6 +42,11 @@ const List: React.FC = () => {
         ]
        })
     };
+  const doRefresh= async (event:any)=>{
+  const data = await getUsers();
+  setUsers(data);
+  event.detail.complete();
+   }
 
     return (
         <IonPage>
@@ -62,9 +67,10 @@ const List: React.FC = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent>
-                {loading ? (
-                    <p>Loading Teachers...</p> // Display loading state
-                ) : (
+                <IonRefresher slot='fixed' onIonRefresh={(ev)=>doRefresh(ev)}>
+                    <IonRefresherContent/>
+                </IonRefresher>
+                {
                     users.map((user, index) => (
                         <IonCard key={index}>
                             <IonCardContent className='ion-no-padding'>
@@ -83,7 +89,7 @@ const List: React.FC = () => {
                             </IonCardContent>
                         </IonCard>
                     ))
-                )}
+                }
             </IonContent>
         </IonPage>
     );

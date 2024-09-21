@@ -47,7 +47,7 @@ const Login: React.FC=()=>{
         <IonPage>
             <IonHeader>
                 <IonToolbar >
-                    <IonTitle>
+                    <IonTitle style={{ fontSize: '14px' }}>
                         MacAgutu School For Coding
                     </IonTitle>
                 </IonToolbar>
@@ -56,7 +56,7 @@ const Login: React.FC=()=>{
                 <IonGrid fixed>
                     <IonRow className="ion-justify-content-center">
                         <IonCol size='12' sizeMd="8" sizeLg="6" sizeXl="4">
-                            <div className="ion-text-center ion-padding">
+                            <div className="ion-text-center ">
                             <img src={logo} alt="react" width={85} />
                             </div>
                         </IonCol>
