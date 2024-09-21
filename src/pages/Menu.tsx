@@ -3,7 +3,7 @@ import React from 'react';
 import { Redirect, Route } from 'react-router';
 import List from './List';
 import Setting from './Setting';
-import { cog, homeOutline, newspaperOutline } from 'ionicons/icons';
+import { cog, homeOutline, logOutOutline, newspaperOutline } from 'ionicons/icons';
 
 const Menu: React.FC = () => {
   const paths=[
@@ -21,13 +21,19 @@ const Menu: React.FC = () => {
                 </IonHeader>
                 <IonContent >
                     {paths.map((item,index)=>(
-                        <IonMenuToggle key={index}>
+                        <IonMenuToggle key={index} autoHide={false}>
                         <IonItem routerLink={item.url} key={index}>
                             <IonIcon slot='start' icon={item.icon}/>
                             {item.name}
                         </IonItem>
                         </IonMenuToggle>
                     ))}
+                    <IonMenuToggle  autoHide={false}>
+                        <IonItem detail={false} routerLink="/" routerDirection='root'>
+                            <IonIcon slot='start' icon={logOutOutline}/>
+                           Logout
+                        </IonItem>
+                        </IonMenuToggle>
                 </IonContent>
             </IonMenu>
             <IonRouterOutlet id='main'>
