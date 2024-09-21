@@ -1,6 +1,6 @@
-import { IonButton, IonButtons, IonCard, IonCardContent, IonItem, IonLabel, IonIcon, IonMenuButton, IonPage, IonSearchbar, IonTitle, IonToolbar, useIonViewWillEnter, IonHeader, IonContent, IonAvatar, IonImg, IonChip, useIonAlert, useIonToast, useIonLoading, IonRefresher, IonRefresherContent, IonSkeletonText, IonModal, IonFab, IonFabButton } from '@ionic/react';
+import { IonButton, IonButtons, IonCard, IonCardContent, IonItem, IonLabel, IonIcon, IonMenuButton, IonPage, IonSearchbar, IonTitle, IonToolbar, useIonViewWillEnter, IonHeader, IonContent, IonAvatar, IonImg, IonChip, useIonAlert, useIonToast, useIonLoading, IonRefresher, IonRefresherContent, IonSkeletonText, IonModal, IonFab, IonFabButton, IonSegment, IonSegmentButton, IonDatetime } from '@ionic/react';
 import { addOutline, trashBinOutline } from 'ionicons/icons';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const List: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true);
@@ -10,7 +10,13 @@ const List: React.FC = () => {
     const [selectedUser,setSelectedUser]=useState<any>(null);
     const model= useRef<HTMLIonModalElement>(null);
     const cardModel= useRef<HTMLIonModalElement>(null);
-   
+   const [presentingElement, setPresentingElement]=useState<HTMLElement| null> (null);
+   const page= useRef(null);
+   const[activeSegement,setActiveSegment]=useState<any>('details');
+
+   useEffect(()=>{
+    setPresentingElement(page.current);
+   },[]);
     useIonViewWillEnter(() => {
         const fetchUsers = async () => {
             const users = await getUsers();
@@ -52,7 +58,7 @@ const List: React.FC = () => {
    }
 
     return (
-        <IonPage>
+        <IonPage ref={page}>
             <IonHeader>
                 <IonToolbar>
                     <IonButton fill="clear" slot="start" color="dark">
@@ -125,13 +131,35 @@ const List: React.FC = () => {
                                 {selectedUser?.user.name.first} {selectedUser?.user.name.last}
                             </IonTitle>
                         </IonToolbar>
+                        <IonToolbar color={'medium'}>
+                          <IonSegment value={activeSegement} onIonChange={(e)=>setActiveSegment(e.detail.value)}>
+                            <IonSegmentButton value='details'>Details</IonSegmentButton>
+                            <IonSegmentButton value='calendar'>Calendar</IonSegmentButton>
+                          </IonSegment>
+                        </IonToolbar>
                     </IonHeader>
-                    <IonContent>
-                        SHEET
+                    <IonContent className='ion-padding'>
+                        {activeSegement === 'details' &&(
+                            <IonCard>
+                                <IonAvatar slot='start'>
+                                <IonImg src={selectedUser?.user.picture.thumbnail}/>
+                                </IonAvatar>
+                               <IonCardContent className='ion-no-padding'>
+                               <IonItem lines='none'>
+                                <IonLabel class='ion-text-wrap'>
+                                {selectedUser?.user.name.first} {selectedUser?.user.name.last}
+                                <p> {selectedUser?.user.email}</p>
+                                </IonLabel>
+                               </IonItem>
+                               </IonCardContent>
+
+                            </IonCard>
+                        )}
+                        {activeSegement === 'calendar' && <IonDatetime/>}
                     </IonContent>
                 </IonModal>
 
-                <IonModal ref={cardModel} trigger='card-model'>
+                <IonModal ref={cardModel} trigger='card-model' presentingElement= {presentingElement!}>
                 <IonHeader>
                         <IonToolbar>
                             <IonButtons slot="start">
@@ -146,8 +174,8 @@ const List: React.FC = () => {
                         My Card Model
                     </IonContent>
                 </IonModal>
-                <IonFab  color={"tertiary"} vertical="bottom" horizontal="end" slot="fixed">
-                    <IonFabButton>
+                <IonFab  vertical="bottom" horizontal="end" slot="fixed">
+                    <IonFabButton color={"tertiary"} id='card-model'>
                         <IonIcon icon={addOutline}/>
                     </IonFabButton>
                 </IonFab>
