@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonMenu, IonMenuButton, IonPage, IonSearchbar, IonTitle, IonToolbar, useIonViewDidEnter, useIonViewWillEnter } from '@ionic/react';
+import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonHeader, IonIcon, IonMenu, IonMenuButton, IonPage, IonSearchbar, IonTitle, IonToolbar, useIonViewDidEnter, useIonViewWillEnter } from '@ionic/react';
 import { trashBinOutline } from 'ionicons/icons';
 import React, { useState } from 'react';
 
@@ -20,7 +20,7 @@ const List: React.FC = () => {
     const getUsers= async ()=>{
         const data= await fetch('https://randomuser.me/api/0.8/?results=10');
         const users= await data.json();
-        return users;
+        return users.results;
     };
 
     const clearList=(()=>{
@@ -37,7 +37,7 @@ const List: React.FC = () => {
                     <IonTitle>List</IonTitle>
                     <IonButtons slot="end">
                         <IonButtons onClick={clearList}>
-                            <IonIcon slot='icon-only' icon={trashBinOutline} color='light'/>
+                            <IonIcon slot='icon-only' icon={trashBinOutline} />
                         </IonButtons>
                     </IonButtons>
                 </IonToolbar>
@@ -45,8 +45,13 @@ const List: React.FC = () => {
                     <IonSearchbar/>
                 </IonToolbar>
             </IonHeader>
-            <IonContent className="ion-padding">
-                UI goes here...
+            <IonContent >
+              {users.map((user,index)=>(
+                <IonCard key={index}>
+                   
+                    <IonCardContent></IonCardContent>
+                </IonCard>
+              ))}
             </IonContent>
         </IonPage>
     );
