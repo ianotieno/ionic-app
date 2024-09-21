@@ -1,5 +1,5 @@
-import { IonButton, IonButtons, IonCard, IonCardContent, IonItem, IonLabel, IonIcon, IonMenuButton, IonPage, IonSearchbar, IonTitle, IonToolbar, useIonViewWillEnter, IonHeader, IonContent, IonAvatar, IonImg, IonChip, useIonAlert, useIonToast, useIonLoading, IonRefresher, IonRefresherContent, IonSkeletonText, IonModal } from '@ionic/react';
-import { trashBinOutline } from 'ionicons/icons';
+import { IonButton, IonButtons, IonCard, IonCardContent, IonItem, IonLabel, IonIcon, IonMenuButton, IonPage, IonSearchbar, IonTitle, IonToolbar, useIonViewWillEnter, IonHeader, IonContent, IonAvatar, IonImg, IonChip, useIonAlert, useIonToast, useIonLoading, IonRefresher, IonRefresherContent, IonSkeletonText, IonModal, IonFab, IonFabButton } from '@ionic/react';
+import { addOutline, trashBinOutline } from 'ionicons/icons';
 import React, { useRef, useState } from 'react';
 
 const List: React.FC = () => {
@@ -9,7 +9,7 @@ const List: React.FC = () => {
     const [showToast]= useIonToast();
     const [selectedUser,setSelectedUser]=useState<any>(null);
     const model= useRef<HTMLIonModalElement>(null);
-
+    const cardModel= useRef<HTMLIonModalElement>(null);
    
     useIonViewWillEnter(() => {
         const fetchUsers = async () => {
@@ -121,13 +121,36 @@ const List: React.FC = () => {
                             <IonButtons slot="start">
                                 <IonButton onClick={()=>model.current?.dismiss()}>Close</IonButton>
                             </IonButtons>
-                            <IonTitle>User</IonTitle>
+                            <IonTitle>
+                                {selectedUser?.user.name.first} {selectedUser?.user.name.last}
+                            </IonTitle>
                         </IonToolbar>
                     </IonHeader>
                     <IonContent>
                         SHEET
                     </IonContent>
                 </IonModal>
+
+                <IonModal ref={cardModel} trigger='card-model'>
+                <IonHeader>
+                        <IonToolbar>
+                            <IonButtons slot="start">
+                                <IonButton onClick={()=>cardModel.current?.dismiss()}>Close</IonButton>
+                            </IonButtons>
+                            <IonTitle>
+                               Card Model
+                            </IonTitle>
+                        </IonToolbar>
+                    </IonHeader>
+                    <IonContent>
+                        My Card Model
+                    </IonContent>
+                </IonModal>
+                <IonFab  color={"tertiary"} vertical="bottom" horizontal="end" slot="fixed">
+                    <IonFabButton>
+                        <IonIcon icon={addOutline}/>
+                    </IonFabButton>
+                </IonFab>
             </IonContent>
         </IonPage>
     );
