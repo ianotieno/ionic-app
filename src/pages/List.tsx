@@ -113,7 +113,7 @@ const List: React.FC = () => {
                         </IonCard>
                     ))
                 }
-                <IonModal ref={model} isOpen={ selectedUser!== null}>
+                <IonModal ref={model} isOpen={ selectedUser!== null} onIonModalDidDismiss={()=>selectedUser!== null} >
                     <IonHeader>
                         <IonToolbar>
                             <IonButtons slot="start">
