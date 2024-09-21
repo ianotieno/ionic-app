@@ -1,12 +1,15 @@
-import { IonButton, IonButtons, IonCard, IonCardContent, IonItem, IonLabel, IonIcon, IonMenuButton, IonPage, IonSearchbar, IonTitle, IonToolbar, useIonViewWillEnter, IonHeader, IonContent, IonAvatar, IonImg, IonChip, useIonAlert, useIonToast, useIonLoading, IonRefresher, IonRefresherContent, IonSkeletonText } from '@ionic/react';
+import { IonButton, IonButtons, IonCard, IonCardContent, IonItem, IonLabel, IonIcon, IonMenuButton, IonPage, IonSearchbar, IonTitle, IonToolbar, useIonViewWillEnter, IonHeader, IonContent, IonAvatar, IonImg, IonChip, useIonAlert, useIonToast, useIonLoading, IonRefresher, IonRefresherContent, IonSkeletonText, IonModal } from '@ionic/react';
 import { trashBinOutline } from 'ionicons/icons';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 const List: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true);
     const [users, setUsers] = useState<any[]>([]);
     const [showAlert]=useIonAlert();
     const [showToast]= useIonToast();
+    const [selectedUser,setSelectedUser]=useState<any>(null);
+    const model= useRef<HTMLIonModalElement>(null);
+
    
     useIonViewWillEnter(() => {
         const fetchUsers = async () => {
@@ -72,7 +75,7 @@ const List: React.FC = () => {
                 </IonRefresher>
                 {loading && (
                     [...Array(10)].map((_,index)=>(
-                        <IonCard key={index}>
+                        <IonCard key={index} >
                             <IonCardContent className='ion-no-padding'>
                                 <IonItem lines='none'>
                                     <IonAvatar slot='start'>
@@ -92,7 +95,7 @@ const List: React.FC = () => {
                     )}
                 {
                     users.map((user, index) => (
-                        <IonCard key={index}>
+                        <IonCard key={index} onClick={()=>setSelectedUser(user)}>
                             <IonCardContent className='ion-no-padding'>
                                 <IonItem lines='none'>
                                     <IonAvatar slot='start'>
@@ -110,6 +113,19 @@ const List: React.FC = () => {
                         </IonCard>
                     ))
                 }
+                <IonModal ref={model} isOpen={ selectedUser!== null}>
+                    <IonHeader>
+                        <IonToolbar>
+                            <IonButtons slot="start">
+                                <IonButton onClick={()=>model.current?.dismiss()}>Close</IonButton>
+                            </IonButtons>
+                            <IonTitle>User</IonTitle>
+                        </IonToolbar>
+                    </IonHeader>
+                    <IonContent>
+                        SHEET
+                    </IonContent>
+                </IonModal>
             </IonContent>
         </IonPage>
     );
