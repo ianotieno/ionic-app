@@ -3,9 +3,6 @@ ion-item:hover{
     --color:var(--ion-color-dark)
 }
 
-ion-item{
-    --padding:10px
-}
 
 ion-item::part(detail-icon){
     color: coral;

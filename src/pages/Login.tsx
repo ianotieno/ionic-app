@@ -48,7 +48,7 @@ const Login: React.FC=()=>{
             <IonHeader>
                 <IonToolbar >
                     <IonTitle className="ion-text-center " style={{ fontSize: '14px' }}>
-                        MacAgutu School For Coding
+                        MacAgutu Code Academy
                     </IonTitle>
                 </IonToolbar>
             </IonHeader>
@@ -78,7 +78,7 @@ const Login: React.FC=()=>{
                   <IonIcon icon={personCircleOutline} slot="end"/>
                     Create Account</IonButton>
                     <IonButton onClick={seeIntroAgain} fill="clear" size="small" color={'medium'}  className="ion-margin-top" type="button" expand="block">
-                  <IonIcon icon={personCircleOutline} slot="end"/>
+                  <IonIcon icon={"eye"} slot="end"/>
                     Watch Intro Again</IonButton>
                     </form>
                             </IonCol></IonRow></IonGrid>

@@ -62,7 +62,7 @@ const List: React.FC = () => {
         <IonPage ref={page}>
             <IonHeader>
                 <IonToolbar>
-                    <IonButton fill="clear" slot="start" color="dark">
+                    <IonButton fill="clear" slot="start" color="white">
                         <IonMenuButton />
                     </IonButton>
                     <IonTitle>Meet Our Trainers</IonTitle>

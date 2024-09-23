@@ -36,7 +36,7 @@ import Register from './pages/Register';
 import Menu from './pages/Menu';
 
 setupIonicReact({
-  mode: 'ios'
+
 });
 
 const App: React.FC = () => (

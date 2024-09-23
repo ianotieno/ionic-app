@@ -13,11 +13,11 @@ const Setting: React.FC = () => {
         <IonTabBar slot='bottom'>
          <IonTabButton tab='tab1' href='/app/settings/tab1'>
         <IonIcon icon={triangle}/>
-        <IonLabel>Tab 1</IonLabel>
+        <IonLabel>Notes</IonLabel>
          </IonTabButton>
          <IonTabButton tab='tab2' href='/app/settings/tab2'>
         <IonIcon icon={ellipse}/>
-        <IonLabel>Tab 2</IonLabel>
+        <IonLabel>Community</IonLabel>
          </IonTabButton>
         </IonTabBar>
         <IonRouterOutlet>
