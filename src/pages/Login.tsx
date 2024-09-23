@@ -69,8 +69,8 @@ const Login: React.FC=()=>{
                     <IonRow className="ion-justify-content-center">
                         <IonCol size='12' sizeMd="8" sizeLg="6" sizeXl="4">
                         <form onSubmit={doLogin}>
-                  <IonInput label="Email" type='email' placeholder="ianotieno23@gmail.com" fill="outline" labelPlacement="floating"></IonInput>
-                  <IonInput className="ion-margin-top" label="Password" type='password' placeholder="Password" fill="outline" labelPlacement="floating"></IonInput>
+                  <IonInput mode="md" label="Email" type='email' placeholder="ianotieno23@gmail.com" fill="outline" labelPlacement="floating"></IonInput>
+                  <IonInput mode="md" className="ion-margin-top" label="Password" type='password' placeholder="Password" fill="outline" labelPlacement="floating"></IonInput>
                   <IonButton className="ion-margin-top" type="submit" color={'tertiary'} expand="block">
                     <IonIcon icon={logInOutline} slot="end"/>
                     Login</IonButton>
