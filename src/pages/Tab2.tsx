@@ -3,8 +3,10 @@ import React, { useRef } from 'react';
 
 const Tab2: React.FC = () => {
 const animationRef = useRef<CreateAnimation>(null);
+const elementRef= useRef<HTMLDivElement|null>(null);
+
 useIonViewDidEnter(()=>{
-    animationRef.current?.animation.play();
+    //animationRef.current?.animation.play();
 })
     return (
         <IonPage>
