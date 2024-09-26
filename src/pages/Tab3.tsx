@@ -38,10 +38,10 @@ const Tab3: React.FC = () => {
         const data = await response.json();
         return data.results; // Accessing 'results' from API response
     };
-    const handleAddUser = () => {
+    const handleAddUser1 = () => {
         // Handle form submission logic here
-        toast.success("Lorem ipsum dolor", {
-            theme: "colored",
+        toast.success("Sent Successfully, Our team will be in touch", {
+            
             position: "bottom-right" 
 
           });
@@ -72,7 +72,37 @@ const Tab3: React.FC = () => {
         setUsers(data);
         event.detail.complete();
     }
+    const [prefix, setPrefix] = useState('');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [telephone, setTelephone] = useState('');
+    const [address, setAddress] = useState('');
+    const [formValid, setFormValid] = useState(true);
 
+    // Function to handle form submission
+    const handleAddUser = () => {
+      if (!prefix || !name || !email || !telephone || !address) {
+        setFormValid(false);
+        return;
+      }
+  
+      // Reset validation state after successful submission
+      setFormValid(true);
+      toast.success("Sent Successfully, Our team will be in touch", {
+            
+        position: "bottom-right" 
+
+      });
+      setPrefix('');
+  setName('');
+  setEmail('');
+  setTelephone('');
+  setAddress('');
+    cardModel.current?.dismiss(); // Close the modal after submission
+  
+      // Add your submission logic here
+      console.log("Form Submitted", { prefix, name, email, telephone, address });
+    };
     // Function to filter users based on the search term
     const filterUsers = () => {
         return users.filter(user =>
@@ -210,48 +240,79 @@ const Tab3: React.FC = () => {
         </IonToolbar>
     </IonHeader>
     <IonContent>
-    <IonList>
-        {/* Dropdown for Prefix */}
+      <IonList>
+      {!formValid && <p style={{ color: 'red' }}>Please fill in all fields</p>}
         <IonItem>
-            <IonLabel>Prefix :</IonLabel>
-            <IonSelect placeholder="Select Prefix">
-                <IonSelectOption value="Mr">Mr.</IonSelectOption>
-                <IonSelectOption value="Ms">Ms.</IonSelectOption>
-                <IonSelectOption value="Dr">Dr.</IonSelectOption>
-                <IonSelectOption value="Prof">Prof.</IonSelectOption>
-            </IonSelect>
+          <IonLabel>Prefix :</IonLabel>
+          <IonSelect
+            placeholder="Select Prefix"
+            value={prefix}
+            onIonChange={(e) => setPrefix(e.detail.value)}
+          >
+            <IonSelectOption value="Mr">Mr.</IonSelectOption>
+            <IonSelectOption value="Ms">Ms.</IonSelectOption>
+            <IonSelectOption value="Dr">Dr.</IonSelectOption>
+            <IonSelectOption value="Prof">Prof.</IonSelectOption>
+          </IonSelect>
         </IonItem>
-
+       
         {/* Name Input */}
         <IonItem>
-            <IonLabel position="floating">Name :</IonLabel>
-            <IonInput type='text' placeholder="Ian Otieno" />
+          
+          <IonInput
+            label='Name :'
+            type="text"
+            value={name}
+            onIonInput={(e) => setName(e.detail.value?? '')}
+            required
+            placeholder="Ian Otieno"
+          />
         </IonItem>
 
         {/* Email Input */}
         <IonItem>
-            <IonLabel position="floating">Email :</IonLabel>
-            <IonInput type='email' placeholder="ianotieno23@gmail.com" />
+          
+          <IonInput
+          label='Email :'
+            type="email"
+            value={email}
+            onIonInput={(e) => setEmail(e.detail.value ?? '')}
+            required
+            placeholder="ianotieno23@gmail.com"
+          />
         </IonItem>
 
         {/* Telephone Input */}
         <IonItem>
-            <IonLabel position="floating">Telephone :</IonLabel>
-            <IonInput type='number' placeholder="+254 714194925" />
+         
+          <IonInput
+          label='Telephone :'
+            type="number"
+            value={telephone}
+            onIonInput={(e) => setTelephone(e.detail.value?? '')}
+            required
+            placeholder="+254 714194925"
+          />
         </IonItem>
 
         {/* Address Input */}
         <IonItem>
-            <IonLabel position="floating">Address :</IonLabel>
-            <IonInput type='text' placeholder="234232" />
+          
+          <IonInput
+          label='Address :'
+            type="text"
+            value={address}
+            onIonInput={(e) => setAddress(e.detail.value?? '')}
+            required
+            placeholder="234232"
+          />
         </IonItem>
-    </IonList>
+      </IonList>
 
-    {/* Submit Button */}
-    <IonButton expand="full" onClick={handleAddUser}>
+      <IonButton expand="full" type="submit" onClick={handleAddUser}>
         Send Request
-    </IonButton>
-</IonContent>
+      </IonButton>
+    </IonContent>
 
 </IonModal>
 

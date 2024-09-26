@@ -29,16 +29,22 @@ const Tab1: React.FC = () => {
       </IonHeader>
 
       <IonContent className="ion-padding">
-        <IonButton expand='full' onClick={takePicture} color="tertiary">Take A Picture</IonButton>
-
+        <IonButton expand='full' onClick={takePicture} color="tertiary">Snap Notes</IonButton>
+       
         {/* Display all images */}
         {images.length > 0 && (
-          <div>
-            {images.map((img, index) => (
-              <img key={index} src={img} alt={`Captured ${index}`} style={{ width: '100%', marginTop: '10px' }} />
-            ))}
-          </div>
-        )}
+  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '10px', marginTop: '10px' }}>
+    {images.map((img, index) => (
+      <img 
+        key={index} 
+        src={img} 
+        alt={`Captured ${index}`} 
+        style={{ width: '100%', objectFit: 'cover', borderRadius: '5px' }} 
+      />
+    ))}
+  </div>
+)}
+
       </IonContent>
     </IonPage>
   );
