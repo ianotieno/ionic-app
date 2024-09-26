@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 
 const  Settings1: React.FC = () => {
@@ -7,7 +7,10 @@ const  Settings1: React.FC = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>Page Title</IonTitle>
+                <IonButtons slot="start">
+                    <IonBackButton defaultHref="/app/list"/>
+                </IonButtons>
+                    <IonTitle>Settings</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent className="ion-padding">

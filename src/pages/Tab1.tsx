@@ -29,7 +29,7 @@ const Tab1: React.FC = () => {
       </IonHeader>
 
       <IonContent className="ion-padding">
-        <IonButton expand='full' onClick={takePicture}>Take A Picture</IonButton>
+        <IonButton expand='full' onClick={takePicture} color="tertiary">Take A Picture</IonButton>
 
         {/* Display all images */}
         {images.length > 0 && (

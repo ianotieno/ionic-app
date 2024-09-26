@@ -5,6 +5,17 @@ ion-item:hover{
 
 
 ion-item::part(detail-icon){
-    color: coral;
+    color: rgb(163, 166, 241);
     opacity: 1;
 }
+ion-tab-bar {
+    height: 65px;
+    width: 80%;
+    position: relative;
+    transform: translate(-50%, -30%);
+    left: 50%;
+    border-radius: 25px;
+  }
+  .custom-fab {
+    bottom: 30px; /* Adjust the value as needed */
+  }

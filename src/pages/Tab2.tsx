@@ -5,8 +5,8 @@ const Tab2: React.FC = () => {
   const animationRef = useRef(null);
 
   const joinCommunity = () => {
-    // Replace with your WhatsApp group link or phone number
-    const whatsappUrl = 'https://wa.me/1234567890?text=I%20want%20to%20join%20the%20MacAgutu%20Community';
+    
+    const whatsappUrl = '+254 714194925';
     window.open(whatsappUrl, '_blank');
   };
 

@@ -1,0 +1,233 @@
+import { IonButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonGrid, IonRow, IonCol, IonIcon, IonFooter, IonCardContent, IonAvatar, IonImg, useIonViewWillEnter, IonRouterOutlet } from '@ionic/react';
+import React, { useEffect, useRef, useState } from 'react';
+import { homeOutline, searchOutline, addOutline, personOutline, notificationsOutline, micOutline, peopleOutline, wifi, flame } from 'ionicons/icons';
+import '../pages/Tab5.css'
+import { Route, useHistory } from 'react-router-dom';
+
+import Rooms from './Rooms'
+const Tab5: React.FC = () => {
+    const [users, setUsers] = useState<any[]>([]);
+    const [selectedUser,setSelectedUser]=useState<any>(null);
+    const [presentingElement, setPresentingElement]=useState<HTMLElement| null> (null);
+    const page= useRef(null);
+    const [loading, setLoading] = useState<boolean>(true);
+
+    // Fetch users or data (dummy example)
+    const getUsers = async () => {
+        const response = await fetch('https://randomuser.me/api/0.8/?results=17');
+        const data = await response.json();
+        return data.results;
+    };
+
+    useEffect(() => {
+        setPresentingElement(page.current);
+    }, []);
+
+    useIonViewWillEnter(() => {
+        const fetchUsers = async () => {
+            const users = await getUsers();
+            console.log("users:", users);
+            setUsers(users);
+            setLoading(false);
+        };
+
+        fetchUsers();
+    });
+    const history = useHistory();
+    const navigateToDetails = (speaker: any, listeners: any[], title: string, subtitle: string,icon:any[] ) => {
+        history.push({
+            pathname: '/rooms',
+            state: { speaker, listeners, title, subtitle,icon }, // Pass title and subtitle here
+        });
+    };
+    
+    
+    return (
+        <IonPage>
+            <IonHeader>
+                <IonToolbar>
+                    <IonButton fill="clear" slot="start">
+                        <IonMenuButton />
+                    </IonButton>
+                    <IonTitle>All Rooms</IonTitle>
+                </IonToolbar>
+            </IonHeader>
+
+            <IonContent className="ion-padding">
+                <h2>Upcoming</h2>
+                {/* Card for upcoming talk */}
+                <IonCard className="upcoming-card">
+                    <IonCardHeader>
+                        <IonCardSubtitle>  <IonIcon icon={flame}/> Design talks</IonCardSubtitle>
+                        <IonCardTitle>The future of design systems</IonCardTitle>
+                        <p>5:00PM</p>
+                    </IonCardHeader>
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol>
+                                <IonIcon icon={micOutline} />
+                                <span>3 Speakers</span>
+                            </IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCard>
+
+                <h2>Happening Now</h2>
+                {/* Cards for ongoing talks */}
+               
+                
+                <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[0], users.slice(1, 10), 'Let\'s talk about ReactJS', 'Javascript talks',[ flame])}>
+                    <IonCardHeader>
+                        <IonCardSubtitle><IonIcon icon={flame}/>Javascript talks</IonCardSubtitle>
+                        <IonCardTitle>Let's talk about ReactJS</IonCardTitle>
+                    </IonCardHeader>
+                    <IonGrid>
+                        <IonRow>
+                            {/* Show only the first 3 users */}
+                            {users.slice(0, 4).map((user, index) => (
+                                <IonCol key={index} size="auto">
+                                    <IonAvatar onClick={() => setSelectedUser(user)}>
+                                        <IonImg src={user.user.picture.thumbnail} />
+                                    </IonAvatar>
+                                </IonCol>
+                            ))}
+                        </IonRow>
+                        <IonRow>
+                            <IonCol>
+                                {/* Mock avatars for speakers */}
+                                <IonIcon icon={micOutline} />
+                                <span>4 Speakers</span>
+                            </IonCol>
+                            <IonCol>
+                                <IonIcon icon={peopleOutline} />
+                                <span>239 Audience</span>
+                            </IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCard>
+
+                <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[0], users.slice(1, 15), 'Mobile talks', 'How Ionic can transform mobile development',[flame])}>
+                
+                    <IonCardHeader>
+                        <IonCardSubtitle><IonIcon icon={flame}/>Mobile talks</IonCardSubtitle>
+                        <IonCardTitle>How Ionic can transform mobile development</IonCardTitle>
+                    </IonCardHeader>
+                    <IonGrid>
+                    <IonRow>
+                            {/* Show only the first 3 users */}
+                            {users.slice(5, 7).map((user, index) => (
+                                <IonCol key={index} size="auto">
+                                    <IonAvatar onClick={() => setSelectedUser(user)}>
+                                        <IonImg src={user.user.picture.thumbnail} />
+                                    </IonAvatar>
+                                </IonCol>
+                            ))}
+                        </IonRow>
+                        <IonRow>
+                            <IonCol>
+                                <IonIcon icon={micOutline} />
+                                <span>2 Speakers</span>
+                            </IonCol>
+                            <IonCol>
+                                <IonIcon icon={peopleOutline} />
+                                <span>50 Audience</span>
+                            </IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCard>
+                <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[16], users.slice(0, 15), 'Mobile talks', 'How Ionic can transform mobile development',[flame])}>
+                
+                    <IonCardHeader>
+                        <IonCardSubtitle><IonIcon icon={flame}/>Mobile talks</IonCardSubtitle>
+                        <IonCardTitle>How to  Use Capacitors to access native features</IonCardTitle>
+                    </IonCardHeader>
+                    <IonGrid>
+                    <IonRow>
+                            {/* Show only the first 3 users */}
+                            {users.slice(8, 11).map((user, index) => (
+                                <IonCol key={index} size="auto">
+                                    <IonAvatar onClick={() => setSelectedUser(user)}>
+                                        <IonImg src={user.user.picture.thumbnail} />
+                                    </IonAvatar>
+                                </IonCol>
+                            ))}
+                        </IonRow>
+                        <IonRow>
+                            <IonCol>
+                                <IonIcon icon={micOutline} />
+                                <span>3 Speakers</span>
+                            </IonCol>
+                            <IonCol>
+                                <IonIcon icon={peopleOutline} />
+                                <span>150 Audience</span>
+                            </IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCard>
+                <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[11], users.slice(0, 10), 'Design talks', 'Does SASS give you an added advantage',[flame])}>
+                
+                    <IonCardHeader>
+                        <IonCardSubtitle><IonIcon icon={flame}/>Design talks</IonCardSubtitle>
+                        <IonCardTitle>Does SASS give you an added advantage</IonCardTitle>
+                    </IonCardHeader>
+                    <IonGrid>
+                    <IonRow>
+                            {/* Show only the first 3 users */}
+                            {users.slice(12,14).map((user, index) => (
+                                <IonCol key={index} size="auto">
+                                    <IonAvatar onClick={() => setSelectedUser(user)}>
+                                        <IonImg src={user.user.picture.thumbnail} />
+                                    </IonAvatar>
+                                </IonCol>
+                            ))}
+                        </IonRow>
+                        <IonRow>
+                            <IonCol>
+                                <IonIcon icon={micOutline} />
+                                <span>2 Speakers</span>
+                            </IonCol>
+                            <IonCol>
+                                <IonIcon icon={peopleOutline} />
+                                <span>50 Audience</span>
+                            </IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCard>
+                <IonCard  className="happening-now-card" onClick={() => navigateToDetails(users[6], users.slice(0, 16), 'Business Talk', 'Build A startUp from scratch',[flame])}>
+                
+                    <IonCardHeader>
+                        <IonCardSubtitle><IonIcon icon={flame}/>Business Talk</IonCardSubtitle>
+                        <IonCardTitle>Build A startUp from scratch</IonCardTitle>
+                    </IonCardHeader>
+                    <IonGrid>
+                    <IonRow>
+                            {/* Show only the first 3 users */}
+                            {users.slice(14).map((user, index) => (
+                                <IonCol key={index} size="auto">
+                                    <IonAvatar onClick={() => setSelectedUser(user)}>
+                                        <IonImg src={user.user.picture.thumbnail} />
+                                    </IonAvatar>
+                                </IonCol>
+                            ))}
+                        </IonRow>
+                        <IonRow>
+                            <IonCol>
+                                <IonIcon icon={micOutline} />
+                                <span>3 Speakers</span>
+                            </IonCol>
+                            <IonCol>
+                                <IonIcon icon={peopleOutline} />
+                                <span>110 Audience</span>
+                            </IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCard>
+               
+            </IonContent>
+            
+
+        </IonPage>
+    );
+};
+
+export default Tab5;

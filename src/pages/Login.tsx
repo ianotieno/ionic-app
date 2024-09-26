@@ -1,6 +1,6 @@
 import { IonButton, IonCard, IonCardContent, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonPage, IonRow, IonTitle, IonToolbar, useIonLoading, useIonRouter } from "@ionic/react"
 import React, { useEffect, useState } from "react";
-import {logInOutline, personCircleOutline} from 'ionicons/icons'
+import {eye, logInOutline, personCircleOutline} from 'ionicons/icons'
 import logo from '../assets/details-5.png'
 
 import Intros from "../components/Intros";
@@ -78,7 +78,7 @@ const Login: React.FC=()=>{
                   <IonIcon icon={personCircleOutline} slot="end"/>
                     Create Account</IonButton>
                     <IonButton onClick={seeIntroAgain} fill="clear" size="small" color={'medium'}  className="ion-margin-top" type="button" expand="block">
-                  <IonIcon icon={"eye"} slot="end"/>
+                  <IonIcon icon={eye} slot="end"/>
                     Watch Intro Again</IonButton>
                     </form>
                             </IonCol></IonRow></IonGrid>

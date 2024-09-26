@@ -1,7 +1,7 @@
 import { IonBackButton, IonButtons, IonContent, IonHeader, IonIcon, IonLabel, IonMenu, IonPage, IonRouterOutlet, IonTab, IonTabBar, IonTabButton, IonTabs, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 import { Redirect, Route } from 'react-router';
-import List from './List';
+
 import { addCircle, atCircle, checkmarkDoneCircleOutline, ellipse, personCircleOutline, triangle } from 'ionicons/icons';
 import Tab1 from './Tab1';
 import Tab2 from './Tab2';
