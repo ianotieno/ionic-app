@@ -35,7 +35,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Menu from './pages/Menu';
 import Rooms from './pages/Rooms';
-
+import { ToastContainer } from 'react-toastify';
 setupIonicReact({
 
 });
@@ -43,6 +43,7 @@ setupIonicReact({
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
+    <ToastContainer />
       <IonRouterOutlet>
         <Route exact path="/">
           <Login/>

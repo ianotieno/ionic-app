@@ -1,7 +1,9 @@
-import { IonButton, IonButtons, IonCard, IonCardContent, IonItem, IonLabel, IonIcon, IonMenuButton, IonPage, IonSearchbar, IonTitle, IonToolbar, useIonViewWillEnter, IonHeader, IonContent, IonAvatar, IonImg, IonChip, useIonAlert, useIonToast, IonRefresher, IonRefresherContent, IonSkeletonText, IonModal, IonFab, IonFabButton, IonSegment, IonSegmentButton, IonDatetime, IonInput, IonList } from '@ionic/react';
+import { IonButton, IonButtons, IonCard, IonCardContent, IonItem, IonLabel, IonIcon, IonMenuButton, IonPage, IonSearchbar, IonTitle, IonToolbar, useIonViewWillEnter, IonHeader, IonContent, IonAvatar, IonImg, IonChip, useIonAlert, useIonToast, IonRefresher, IonRefresherContent, IonSkeletonText, IonModal, IonFab, IonFabButton, IonSegment, IonSegmentButton, IonDatetime, IonInput, IonList, IonSelect, IonSelectOption } from '@ionic/react';
 import { addOutline, trashBinOutline } from 'ionicons/icons';
 import React, { useEffect, useRef, useState } from 'react';
 import "../pages/List.css"
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Tab3: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true);
@@ -38,7 +40,11 @@ const Tab3: React.FC = () => {
     };
     const handleAddUser = () => {
         // Handle form submission logic here
-       
+        toast.success("Lorem ipsum dolor", {
+            theme: "colored",
+            position: "bottom-right" 
+
+          });
         cardModel.current?.dismiss(); // Close the modal after submission
       };
     const clearList = () => {
@@ -200,32 +206,53 @@ const Tab3: React.FC = () => {
             <IonButtons slot="start">
                 <IonButton onClick={() => cardModel.current?.dismiss()}>Close</IonButton>
             </IonButtons>
-            <IonTitle>Request To Be a Teacher</IonTitle>
+            <IonTitle>Request To Join Our Team</IonTitle>
         </IonToolbar>
     </IonHeader>
     <IonContent>
-        <IonList>
-            <IonItem>
-                <IonLabel position="floating">Name</IonLabel>
-                <IonInput type="text" />
-            </IonItem>
-            <IonItem>
-                <IonLabel position="floating">Email</IonLabel>
-                <IonInput type="email" />
-            </IonItem>
-            <IonItem>
-                <IonLabel position="floating">Phone Number</IonLabel>
-                <IonInput type="tel" />
-            </IonItem>
-            <IonItem>
-                <IonLabel position="floating">Address</IonLabel>
-                <IonInput type="text" />
-            </IonItem>
-        </IonList>
-        <IonButton expand="full" onClick={() => { handleAddUser() }}>
-            Send Request
-        </IonButton>
-    </IonContent>
+    <IonList>
+        {/* Dropdown for Prefix */}
+        <IonItem>
+            <IonLabel>Prefix :</IonLabel>
+            <IonSelect placeholder="Select Prefix">
+                <IonSelectOption value="Mr">Mr.</IonSelectOption>
+                <IonSelectOption value="Ms">Ms.</IonSelectOption>
+                <IonSelectOption value="Dr">Dr.</IonSelectOption>
+                <IonSelectOption value="Prof">Prof.</IonSelectOption>
+            </IonSelect>
+        </IonItem>
+
+        {/* Name Input */}
+        <IonItem>
+            <IonLabel position="floating">Name :</IonLabel>
+            <IonInput type='text' placeholder="Ian Otieno" />
+        </IonItem>
+
+        {/* Email Input */}
+        <IonItem>
+            <IonLabel position="floating">Email :</IonLabel>
+            <IonInput type='email' placeholder="ianotieno23@gmail.com" />
+        </IonItem>
+
+        {/* Telephone Input */}
+        <IonItem>
+            <IonLabel position="floating">Telephone :</IonLabel>
+            <IonInput type='number' placeholder="+254 714194925" />
+        </IonItem>
+
+        {/* Address Input */}
+        <IonItem>
+            <IonLabel position="floating">Address :</IonLabel>
+            <IonInput type='text' placeholder="234232" />
+        </IonItem>
+    </IonList>
+
+    {/* Submit Button */}
+    <IonButton expand="full" onClick={handleAddUser}>
+        Send Request
+    </IonButton>
+</IonContent>
+
 </IonModal>
 
                 <IonFab vertical="bottom" horizontal="end" slot="fixed" className="custom-fab">
