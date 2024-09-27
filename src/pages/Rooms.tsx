@@ -49,16 +49,16 @@ const Rooms: React.FC = () => {
 
             <IonContent className="ion-padding">
                 {loading ? (
-                    [...Array(6)].map((_, index) => (
+                    [...Array(1)].map((_, index) => (
                         <IonCard key={index}>
                             <IonCardContent className="ion-no-padding">
                                 <IonCardHeader>
-                                    <IonCardSubtitle>
-                                        <IonSkeletonText animated />
-                                    </IonCardSubtitle>
+                                    
+                                    <IonCardTitle><IonSkeletonText animated /></IonCardTitle>
+                                <IonCardSubtitle><IonSkeletonText animated /></IonCardSubtitle>
                                 </IonCardHeader>
                                 <IonItem lines="none">
-                                    <IonAvatar slot="start">
+                                    <IonAvatar style={{ position: 'relative', display: 'inline-block' }}>
                                         <IonSkeletonText animated />
                                     </IonAvatar>
                                     <IonLabel>

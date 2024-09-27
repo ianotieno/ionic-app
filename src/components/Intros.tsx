@@ -23,7 +23,7 @@ const Intros: React.FC<ContainerProps> = ({ onFinish }) => {
                 <div className="ion-text-center ion-padding">
                     <img src={details1} alt="react" className="intro-image" />
                     <IonText>
-                        <h3>Build Awesome Apps with Ionic React</h3>
+                        <h3>The future of design systems</h3>
                     </IonText>
                     <SwiperButtonNext>Next</SwiperButtonNext>
                 </div>
@@ -32,7 +32,7 @@ const Intros: React.FC<ContainerProps> = ({ onFinish }) => {
                 <div className="ion-text-center ion-padding">
                     <img src={details2} alt="react" className="intro-image" />
                     <IonText>
-                        <h3>Build Awesome Apps with Ionic Angular</h3>
+                        <h3>The future of ionic</h3>
                     </IonText>
                     <SwiperButtonNext>
                         <IonText>Next</IonText>
@@ -43,7 +43,7 @@ const Intros: React.FC<ContainerProps> = ({ onFinish }) => {
                 <div className="ion-text-center ion-padding">
                     <img src={details3} alt="react" className="intro-image" />
                     <IonText>
-                        <h3>Build Awesome Apps with Ionic Native Android</h3>
+                        <h3>How Ionic can transform mobile development</h3>
                     </IonText>
                     <IonButton onClick={() => onFinish()}>Finish</IonButton>
                 </div>
