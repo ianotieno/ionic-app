@@ -1,5 +1,5 @@
 import { IonAvatar, IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonChip, IonContent, IonHeader, IonIcon, IonImg, IonItem, IonLabel, IonPage, IonRouterLink, IonSkeletonText, IonTitle, IonToolbar, useIonViewWillEnter } from '@ionic/react';
-import { cameraOutline, cog, helpBuoy, logOutOutline, peopleOutline } from 'ionicons/icons';
+import { cameraOutline, cog, helpBuoy, logOutOutline, peopleOutline, personAddOutline, thumbsUpSharp } from 'ionicons/icons';
 import React, { useState } from 'react';
 
 const Settings1: React.FC = () => {
@@ -10,6 +10,11 @@ const Settings1: React.FC = () => {
         { name: 'Snap & Save', url: '/notes', icon: cameraOutline },
         { name: 'Community', url: '/community', icon: peopleOutline },
         { name: 'Help', url: '/help', icon: helpBuoy }
+    ];
+    const path = [
+        { name: 'Rate Us', url: '/rate', icon: thumbsUpSharp },
+        { name: 'Invite A Friend', url: '/invite', icon: personAddOutline },
+     
     ];
 
     useIonViewWillEnter(() => {
@@ -81,20 +86,31 @@ const Settings1: React.FC = () => {
                     ))
                 )}
             </IonCard>
-           
-            <IonContent className="ion-padding">
+            <IonContent >
+           <IonCard>
+          
                 {paths.map((item, index) => (
                     <IonItem key={index} detail={true} routerLink={item.url}>
                         <IonIcon slot="start" icon={item.icon} />
                         {item.name}
                     </IonItem>
-                ))}
+                ))} </IonCard>
+            
+                 
+               <IonCard>{path.map((item, index) => (
+                    <IonItem key={index} detail={true} routerLink={item.url}>
+                        <IonIcon slot="start" icon={item.icon} />
+                        {item.name}
+                    </IonItem>
+                ))}</IonCard>
                 
-                <IonButton expand="full" routerLink="/" routerDirection="root" color="tertiary">
+                <IonButton  expand="full" routerLink="/" routerDirection="root" color="tertiary">
                     <IonIcon slot="start" icon={logOutOutline} />
                     Logout
                 </IonButton>
-            </IonContent>
+                
+                </IonContent>
+           
         </IonPage>
     );
 };

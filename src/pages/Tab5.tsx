@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonGrid, IonRow, IonCol, IonIcon, IonFooter, IonCardContent, IonAvatar, IonImg, useIonViewWillEnter, IonRouterOutlet, IonLabel } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonGrid, IonRow, IonCol, IonIcon, IonFooter, IonCardContent, IonAvatar, IonImg, useIonViewWillEnter, IonRouterOutlet, IonLabel, IonSelect, IonSelectOption, IonCheckbox } from '@ionic/react';
 import React, { useEffect, useRef, useState } from 'react';
 import { homeOutline, searchOutline, addOutline, personOutline, notificationsOutline, micOutline, peopleOutline, wifi, flame } from 'ionicons/icons';
 import '../pages/Tab5.css'
@@ -11,6 +11,8 @@ const Tab5: React.FC = () => {
     const [presentingElement, setPresentingElement]=useState<HTMLElement| null> (null);
     const page= useRef(null);
     const [loading, setLoading] = useState<boolean>(true);
+    const [attending, setAttending] = useState("");
+    const [isAttending, setIsAttending] = useState(false);
 
     // Fetch users or data (dummy example)
     const getUsers = async () => {
@@ -33,6 +35,7 @@ const Tab5: React.FC = () => {
 
         fetchUsers();
     });
+
     const history = useHistory();
     const navigateToDetails = (speaker: any, listeners: any[], title: string, subtitle: string, subtitle2: string, icon: any[]) => {
         history.push({
@@ -40,8 +43,7 @@ const Tab5: React.FC = () => {
             state: { speaker, listeners, title, subtitle, subtitle2, icon },
         });
     };
-    
-    
+
     return (
         <IonPage>
             <IonHeader>
@@ -61,7 +63,7 @@ const Tab5: React.FC = () => {
           }}icon={flame}/> Design talks</IonCardSubtitle>
                         <IonCardTitle>The future of design systems</IonCardTitle>
 
-                         <IonCardSubtitle>Tommorrow 5:00Pm </IonCardSubtitle> 
+                         <IonCardSubtitle>Tommorrow 5:00Pm </IonCardSubtitle>
                     </IonCardHeader>
                     <IonGrid>
                         <IonRow>
@@ -79,10 +81,22 @@ const Tab5: React.FC = () => {
                                 <IonIcon icon={micOutline} />
                                 <span>4 Speakers</span>
                             </IonCol>
+
                             <IonCol>
+                            
                             <IonIcon icon={peopleOutline} />
-                            <IonLabel> I will be attending</IonLabel>
-                            </IonCol>
+                                <span>  Will you be attending ?</span>
+                            <IonSelect
+                            value={attending}
+                            onIonChange={(e) => setAttending(e.detail.value)}
+                        >
+                            <IonSelectOption value="yes">Yes</IonSelectOption>
+                            <IonSelectOption value="no">No</IonSelectOption>
+                            <IonSelectOption value="no">Maybe</IonSelectOption>
+                        </IonSelect>
+                       
+                        </IonCol>
+
                         </IonRow>
                     </IonGrid>
                 </IonCard>
@@ -104,7 +118,7 @@ const Tab5: React.FC = () => {
                                     </IonAvatar>
                                 </IonCol>
                             ))}
-                            
+
                         </IonRow>
                         <IonRow>
                             <IonCol>
@@ -113,17 +127,26 @@ const Tab5: React.FC = () => {
                                 <span>2 Speakers</span>
                             </IonCol>
                             <IonCol>
-                                <IonIcon icon={peopleOutline} />
-                                <span>2 Audience</span>
-                            </IonCol>
+                            
+                            <IonIcon icon={peopleOutline} />
+                                <span> Will you be attending?</span>
+                            <IonSelect
+                            value={attending}
+                            onIonChange={(e) => setAttending(e.detail.value)}
+                        >
+                            <IonSelectOption value="yes">Yes</IonSelectOption>
+                            <IonSelectOption value="no">No</IonSelectOption>
+                            <IonSelectOption value="no">Maybe</IonSelectOption>
+                        </IonSelect>
+                       
+                        </IonCol>
                         </IonRow>
                     </IonGrid>
                 </IonCard>
 
                 <h2>Happening Now</h2>
                 {/* Cards for ongoing talks */}
-               
-                
+
                 <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[0], users.slice(1, 10), 'Let\'s talk about ReactJS', 'Javascript talks','Today 2:00 PM',[ flame])}>
                     <IonCardHeader>
                         <IonCardSubtitle><IonIcon style={{
@@ -159,7 +182,7 @@ const Tab5: React.FC = () => {
                 </IonCard>
 
                 <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[0], users.slice(1, 15), 'Mobile talks', 'How Ionic can transform mobile development','Today 3:05 PM',[flame])}>
-                
+
                     <IonCardHeader>
                         <IonCardSubtitle><IonIcon  style={{
             backgroundColor: 'green',
@@ -191,7 +214,7 @@ const Tab5: React.FC = () => {
                     </IonGrid>
                 </IonCard>
                 <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[16], users.slice(0, 15), 'Mobile talks', 'How Ionic can transform mobile development','Today 3:30 PM',[flame])}>
-                
+
                     <IonCardHeader>
                         <IonCardSubtitle><IonIcon  style={{
             backgroundColor: 'green',
@@ -223,7 +246,7 @@ const Tab5: React.FC = () => {
                     </IonGrid>
                 </IonCard>
                 <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[11], users.slice(0, 10), 'Design talks', 'Does SASS give you an added advantage','Today 4:10 PM',[flame])}>
-                
+
                     <IonCardHeader>
                         <IonCardSubtitle><IonIcon  style={{
             backgroundColor: 'green',
@@ -255,7 +278,7 @@ const Tab5: React.FC = () => {
                     </IonGrid>
                 </IonCard>
                 <IonCard  className="happening-now-card" onClick={() => navigateToDetails(users[6], users.slice(0, 16), 'Business Talk', 'Build A startUp from scratch','Today 3:50 PM',[flame])}>
-                
+
                     <IonCardHeader>
                         <IonCardSubtitle><IonIcon  style={{
             backgroundColor: 'green',
@@ -286,9 +309,8 @@ const Tab5: React.FC = () => {
                         </IonRow>
                     </IonGrid>
                 </IonCard>
-               
+
             </IonContent>
-            
 
         </IonPage>
     );

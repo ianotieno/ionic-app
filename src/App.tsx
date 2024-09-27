@@ -33,6 +33,8 @@ import List from './pages/List';
 import Notes from './pages/Notes';
 import Community from './pages/Community';
 import Help from './pages/Help';
+import Invite from './pages/Invite';
+import RateUS from './pages/RateUs';
 
 setupIonicReact();
 
@@ -50,6 +52,8 @@ const App: React.FC = () => (
         <Route path="/notes" component={Notes} exact />
         <Route path="/community" component={Community} exact />
         <Route path="/help" component={Help} exact />
+        <Route path="/invite" component={Invite} exact />
+        <Route path="/rate" component={RateUS} exact />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

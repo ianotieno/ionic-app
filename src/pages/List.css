@@ -40,3 +40,5 @@ ion-tab-bar {
   ion-tab-button.tab-selected ion-label {
     color: rgb(7, 7, 7);  /* Ensure the icon and label are white when selected */
   }
+
+  

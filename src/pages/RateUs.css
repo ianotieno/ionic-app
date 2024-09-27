@@ -1,0 +1,53 @@
+.rating-button {
+    margin: 5px;
+    color: rgb(0, 1, 1);
+}
+
+.submit-button {
+    margin-top: 20px;
+}
+
+.ion-card {
+    margin-bottom: 20px;
+}
+
+.ion-textarea {
+    margin-top: 20px;
+}
+
+h2, h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.user-card {
+    margin-bottom: 16px;
+    --ion-card-background: #070707;
+}
+
+.ion-padding {
+    --ion-padding-start: 16px;
+    --ion-padding-end: 16px;
+    --ion-padding-top: 16px;
+    --ion-padding-bottom: 16px;
+}
+
+.ion-card-content {
+    padding: 12px;
+}
+
+.user-card h3 {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.user-card p {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.logout-button {
+    margin-top: 24px;
+    --background: #ff4d4d;
+    --color: white;
+    font-weight: bold;
+}
