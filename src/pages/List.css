@@ -1,17 +1,18 @@
 ion-item:hover{
-    --background: rgb(209, 200, 236);
+    --background: rgb(165, 240, 140);
     --color:var(--ion-color-dark)
 }
 
 
 ion-item::part(detail-icon){
-    color: rgb(163, 166, 241);
+    color: rgb(165, 240, 140);
     opacity: 1;
 }
 ion-tab-bar {
-    height: 65px;
-    width: 80%;
+    height: 50px;
+    width: 100%;
     position: relative;
+    color: green;
     transform: translate(-50%, -30%);
     left: 50%;
     border-radius: 25px;

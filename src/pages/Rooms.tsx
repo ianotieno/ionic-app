@@ -40,7 +40,10 @@ const Rooms: React.FC = () => {
                 {/* Display the card header data */}
                 <IonCard className="happening-now-card">
                     <IonCardHeader>
-                        <IonCardSubtitle><IonIcon icon={flame} />{title}</IonCardSubtitle>
+                        <IonCardSubtitle><IonIcon style={{
+            backgroundColor: 'green',
+            borderRadius: '50%'
+          }} icon={flame} /> {title}</IonCardSubtitle>
                         <IonCardTitle> {subtitle}</IonCardTitle>
                     </IonCardHeader>
 

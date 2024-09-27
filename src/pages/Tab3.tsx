@@ -38,15 +38,7 @@ const Tab3: React.FC = () => {
         const data = await response.json();
         return data.results; // Accessing 'results' from API response
     };
-    const handleAddUser1 = () => {
-        // Handle form submission logic here
-        toast.success("Sent Successfully, Our team will be in touch", {
-            
-            position: "bottom-right" 
-
-          });
-        cardModel.current?.dismiss(); // Close the modal after submission
-      };
+    
     const clearList = () => {
         showAlert({
             header: 'Confirm!',
@@ -114,10 +106,7 @@ const Tab3: React.FC = () => {
         <IonPage ref={page}>
             <IonHeader>
                 <IonToolbar>
-                    <IonButton fill="clear" slot="start" color="white">
-                        <IonMenuButton />
-                    </IonButton>
-                    <IonTitle>Meet Our Trainers</IonTitle>
+                    <IonTitle>Meet Our Team</IonTitle>
                     <IonButtons slot="end">
                         <IonButtons onClick={clearList}>
                             <IonIcon slot="icon-only" icon={trashBinOutline} />

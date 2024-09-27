@@ -26,7 +26,7 @@ const Login: React.FC=()=>{
        await present("Logging in..");
        setTimeout(async()=>{
         dismiss();
-        router.push('/app','forward');
+        router.push('/app/list/','forward');
        },2000)
       
     }

@@ -73,9 +73,6 @@ const Tab4: React.FC = () => {
         <IonPage ref={page}>
             <IonHeader>
                 <IonToolbar>
-                    <IonButton fill="clear" slot="start" color="white">
-                        <IonMenuButton />
-                    </IonButton>
                     <IonTitle>Countries We Operate In</IonTitle>
                 </IonToolbar>
                 <IonToolbar>

@@ -46,9 +46,6 @@ const Tab5: React.FC = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
-                    <IonButton fill="clear" slot="start">
-                        <IonMenuButton />
-                    </IonButton>
                     <IonTitle>All Rooms</IonTitle>
                 </IonToolbar>
             </IonHeader>
@@ -58,15 +55,65 @@ const Tab5: React.FC = () => {
                 {/* Card for upcoming talk */}
                 <IonCard className="upcoming-card">
                     <IonCardHeader>
-                        <IonCardSubtitle>  <IonIcon icon={flame}/> Design talks</IonCardSubtitle>
+                        <IonCardSubtitle>  <IonIcon  style={{
+            backgroundColor: 'white',
+            borderRadius: '50%'
+          }}icon={flame}/> Design talks</IonCardSubtitle>
                         <IonCardTitle>The future of design systems</IonCardTitle>
-                        <p>5:00PM</p>
+                        <IonCardSubtitle>5:00 PM</IonCardSubtitle>
                     </IonCardHeader>
                     <IonGrid>
                         <IonRow>
+                        {users.slice(3,7).map((user, index) => (
+                                <IonCol key={index} size="auto">
+                                    <IonAvatar onClick={() => setSelectedUser(user)}>
+                                        <IonImg src={user.user.picture.thumbnail} />
+                                    </IonAvatar>
+                                </IonCol>
+                            ))}
+                        </IonRow>
+                        <IonRow>
                             <IonCol>
+                                {/* Mock avatars for speakers */}
                                 <IonIcon icon={micOutline} />
-                                <span>3 Speakers</span>
+                                <span>4 Speakers</span>
+                            </IonCol>
+                            <IonCol>
+                                <IonIcon icon={peopleOutline} />
+                                <span>239 Audience</span>
+                            </IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonCard>
+                <IonCard className="upcoming-card">
+                    <IonCardHeader>
+                        <IonCardSubtitle>  <IonIcon  style={{
+            backgroundColor: 'white',
+            borderRadius: '50%'
+          }}icon={flame}/> Mobile Talk</IonCardSubtitle>
+                        <IonCardTitle>The future of ionic </IonCardTitle>
+                        <IonCardSubtitle>7:00 PM</IonCardSubtitle>
+                    </IonCardHeader>
+                    <IonGrid>
+                        <IonRow>
+                        {users.slice(14, 16).map((user, index) => (
+                                <IonCol key={index} size="auto">
+                                    <IonAvatar onClick={() => setSelectedUser(user)}>
+                                        <IonImg src={user.user.picture.thumbnail} />
+                                    </IonAvatar>
+                                </IonCol>
+                            ))}
+                            
+                        </IonRow>
+                        <IonRow>
+                            <IonCol>
+                                {/* Mock avatars for speakers */}
+                                <IonIcon icon={micOutline} />
+                                <span>2 Speakers</span>
+                            </IonCol>
+                            <IonCol>
+                                <IonIcon icon={peopleOutline} />
+                                <span>2 Audience</span>
                             </IonCol>
                         </IonRow>
                     </IonGrid>
@@ -78,8 +125,12 @@ const Tab5: React.FC = () => {
                 
                 <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[0], users.slice(1, 10), 'Let\'s talk about ReactJS', 'Javascript talks',[ flame])}>
                     <IonCardHeader>
-                        <IonCardSubtitle><IonIcon icon={flame}/>Javascript talks</IonCardSubtitle>
+                        <IonCardSubtitle><IonIcon style={{
+            backgroundColor: 'green',
+            borderRadius: '50%'
+          }} icon={flame}/> Javascript talks</IonCardSubtitle>
                         <IonCardTitle>Let's talk about ReactJS</IonCardTitle>
+                        <IonCardSubtitle>2:00 PM</IonCardSubtitle>
                     </IonCardHeader>
                     <IonGrid>
                         <IonRow>
@@ -109,8 +160,11 @@ const Tab5: React.FC = () => {
                 <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[0], users.slice(1, 15), 'Mobile talks', 'How Ionic can transform mobile development',[flame])}>
                 
                     <IonCardHeader>
-                        <IonCardSubtitle><IonIcon icon={flame}/>Mobile talks</IonCardSubtitle>
-                        <IonCardTitle>How Ionic can transform mobile development</IonCardTitle>
+                        <IonCardSubtitle><IonIcon  style={{
+            backgroundColor: 'green',
+            borderRadius: '50%'}} icon={flame}/> Mobile talks</IonCardSubtitle>
+                        <IonCardTitle> How Ionic can transform mobile development</IonCardTitle>
+                        <IonCardSubtitle>3:05 PM</IonCardSubtitle>
                     </IonCardHeader>
                     <IonGrid>
                     <IonRow>
@@ -138,8 +192,11 @@ const Tab5: React.FC = () => {
                 <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[16], users.slice(0, 15), 'Mobile talks', 'How Ionic can transform mobile development',[flame])}>
                 
                     <IonCardHeader>
-                        <IonCardSubtitle><IonIcon icon={flame}/>Mobile talks</IonCardSubtitle>
+                        <IonCardSubtitle><IonIcon  style={{
+            backgroundColor: 'green',
+            borderRadius: '50%'}} icon={flame}/> Mobile talks</IonCardSubtitle>
                         <IonCardTitle>How to  Use Capacitors to access native features</IonCardTitle>
+                        <IonCardSubtitle>3:30 PM</IonCardSubtitle>
                     </IonCardHeader>
                     <IonGrid>
                     <IonRow>
@@ -167,8 +224,11 @@ const Tab5: React.FC = () => {
                 <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[11], users.slice(0, 10), 'Design talks', 'Does SASS give you an added advantage',[flame])}>
                 
                     <IonCardHeader>
-                        <IonCardSubtitle><IonIcon icon={flame}/>Design talks</IonCardSubtitle>
+                        <IonCardSubtitle><IonIcon  style={{
+            backgroundColor: 'green',
+            borderRadius: '50%'}} icon={flame}/> Design talks</IonCardSubtitle>
                         <IonCardTitle>Does SASS give you an added advantage</IonCardTitle>
+                        <IonCardSubtitle>4:10 PM</IonCardSubtitle>
                     </IonCardHeader>
                     <IonGrid>
                     <IonRow>
@@ -196,8 +256,11 @@ const Tab5: React.FC = () => {
                 <IonCard  className="happening-now-card" onClick={() => navigateToDetails(users[6], users.slice(0, 16), 'Business Talk', 'Build A startUp from scratch',[flame])}>
                 
                     <IonCardHeader>
-                        <IonCardSubtitle><IonIcon icon={flame}/>Business Talk</IonCardSubtitle>
+                        <IonCardSubtitle><IonIcon  style={{
+            backgroundColor: 'green',
+            borderRadius: '50%'}} icon={flame}/> Business Talk</IonCardSubtitle>
                         <IonCardTitle>Build A startUp from scratch</IonCardTitle>
+                        <IonCardSubtitle>3:50 PM</IonCardSubtitle>
                     </IonCardHeader>
                     <IonGrid>
                     <IonRow>
