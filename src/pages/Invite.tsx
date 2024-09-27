@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonInput, IonItem, IonLabel } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonInput, IonItem, IonLabel, IonButtons, IonBackButton } from '@ionic/react';
 import React, { useState } from 'react';
 
 const Invite: React.FC = () => {
@@ -14,17 +14,21 @@ const Invite: React.FC = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
+                <IonButtons slot="start">
+                    <IonBackButton defaultHref="/app/list/tab6"/>
+                </IonButtons>
                     <IonTitle>Send Invite</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent className="ion-padding">
                 <IonItem>
-                    <IonLabel position="floating">Enter Email</IonLabel>
+                    
                     <IonInput 
                         type="email" 
                         value={email} 
+                        label='Invite :'
                         onIonChange={e => setEmail(e.detail.value!)} 
-                        placeholder="Enter email to invite"
+                        placeholder="Enter email to invite a friend"
                     />
                 </IonItem>
                 <IonButton expand="block" onClick={handleInvite} className="ion-margin-top">
