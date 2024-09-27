@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonGrid, IonRow, IonCol, IonIcon, IonFooter, IonCardContent, IonAvatar, IonImg, useIonViewWillEnter, IonRouterOutlet } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonGrid, IonRow, IonCol, IonIcon, IonFooter, IonCardContent, IonAvatar, IonImg, useIonViewWillEnter, IonRouterOutlet, IonLabel } from '@ionic/react';
 import React, { useEffect, useRef, useState } from 'react';
 import { homeOutline, searchOutline, addOutline, personOutline, notificationsOutline, micOutline, peopleOutline, wifi, flame } from 'ionicons/icons';
 import '../pages/Tab5.css'
@@ -60,7 +60,8 @@ const Tab5: React.FC = () => {
             borderRadius: '50%'
           }}icon={flame}/> Design talks</IonCardSubtitle>
                         <IonCardTitle>The future of design systems</IonCardTitle>
-                        <IonCardSubtitle>Tommorrow 5:00 PM</IonCardSubtitle>
+
+                         <IonCardSubtitle>Tommorrow 5:00Pm </IonCardSubtitle> 
                     </IonCardHeader>
                     <IonGrid>
                         <IonRow>
@@ -79,8 +80,8 @@ const Tab5: React.FC = () => {
                                 <span>4 Speakers</span>
                             </IonCol>
                             <IonCol>
-                                <IonIcon icon={peopleOutline} />
-                                <span>239 Audience</span>
+                            <IonIcon icon={peopleOutline} />
+                            <IonLabel> I will be attending</IonLabel>
                             </IonCol>
                         </IonRow>
                     </IonGrid>
@@ -130,7 +131,7 @@ const Tab5: React.FC = () => {
             borderRadius: '50%'
           }} icon={flame}/> Javascript talks</IonCardSubtitle>
                         <IonCardTitle>Let's talk about ReactJS</IonCardTitle>
-                        <IonCardSubtitle>Today 2:00 PM</IonCardSubtitle>
+                        <IonCardSubtitle>Today 2:00 PM </IonCardSubtitle>
                     </IonCardHeader>
                     <IonGrid>
                         <IonRow>

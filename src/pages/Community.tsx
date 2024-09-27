@@ -18,7 +18,7 @@ const Community: React.FC = () => {
                     <IonButtons slot="start">
                         <IonBackButton defaultHref="/app/list/tab6" />
                     </IonButtons>
-                    <IonTitle>MacAgutu Community</IonTitle>
+                    <IonTitle> MacAgutu Tech Talk</IonTitle>
                 </IonToolbar>
             </IonHeader>
 

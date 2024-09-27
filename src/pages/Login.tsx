@@ -48,7 +48,7 @@ const Login: React.FC=()=>{
             <IonHeader>
                 <IonToolbar >
                     <IonTitle className="ion-text-center " style={{ fontSize: '14px' }}>
-                        MacAgutu Code Academy
+                        MacAgutu Tech Talk
                     </IonTitle>
                 </IonToolbar>
             </IonHeader>
