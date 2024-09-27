@@ -12,10 +12,5 @@
 }
 .swiper{
     height: 100vh;
-}
-.intro-image {
-    max-width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    display: block;
-    margin: 0 auto;
-}
+}/* intros.css */
+

@@ -13,6 +13,7 @@ import Tab3 from './Tab3';
 import Tab4 from './Tab4';
 import Tab5 from './Tab5';
 import Settings1 from './Settings1';
+import './List.css'; // Import the custom CSS file
 
 const List: React.FC = () => (
   <IonTabs>

@@ -34,10 +34,10 @@ const Tab5: React.FC = () => {
         fetchUsers();
     });
     const history = useHistory();
-    const navigateToDetails = (speaker: any, listeners: any[], title: string, subtitle: string,icon:any[] ) => {
+    const navigateToDetails = (speaker: any, listeners: any[], title: string, subtitle: string, subtitle2: string, icon: any[]) => {
         history.push({
             pathname: '/rooms',
-            state: { speaker, listeners, title, subtitle,icon }, // Pass title and subtitle here
+            state: { speaker, listeners, title, subtitle, subtitle2, icon },
         });
     };
     
@@ -46,21 +46,21 @@ const Tab5: React.FC = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>All Rooms</IonTitle>
+                    <IonTitle>Our Channels</IonTitle>
                 </IonToolbar>
             </IonHeader>
 
             <IonContent className="ion-padding">
                 <h2>Upcoming</h2>
                 {/* Card for upcoming talk */}
-                <IonCard className="upcoming-card">
+                <IonCard className="upcoming-card" onClick={() => navigateToDetails(users[0], users.slice(1, 10), 'The future of design systems', 'Design talks','Tommorrow 5:00 PM',[ flame])}>
                     <IonCardHeader>
                         <IonCardSubtitle>  <IonIcon  style={{
             backgroundColor: 'white',
             borderRadius: '50%'
           }}icon={flame}/> Design talks</IonCardSubtitle>
                         <IonCardTitle>The future of design systems</IonCardTitle>
-                        <IonCardSubtitle>5:00 PM</IonCardSubtitle>
+                        <IonCardSubtitle>Tommorrow 5:00 PM</IonCardSubtitle>
                     </IonCardHeader>
                     <IonGrid>
                         <IonRow>
@@ -85,14 +85,14 @@ const Tab5: React.FC = () => {
                         </IonRow>
                     </IonGrid>
                 </IonCard>
-                <IonCard className="upcoming-card">
+                <IonCard className="upcoming-card" onClick={() => navigateToDetails(users[0], users.slice(1, 3), 'The future of ionic', 'Mobile Talk','Tommorrow 7:00 PM',[ flame])}>
                     <IonCardHeader>
                         <IonCardSubtitle>  <IonIcon  style={{
             backgroundColor: 'white',
             borderRadius: '50%'
           }}icon={flame}/> Mobile Talk</IonCardSubtitle>
                         <IonCardTitle>The future of ionic </IonCardTitle>
-                        <IonCardSubtitle>7:00 PM</IonCardSubtitle>
+                        <IonCardSubtitle>Tommorrow 7:00 PM</IonCardSubtitle>
                     </IonCardHeader>
                     <IonGrid>
                         <IonRow>
@@ -123,14 +123,14 @@ const Tab5: React.FC = () => {
                 {/* Cards for ongoing talks */}
                
                 
-                <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[0], users.slice(1, 10), 'Let\'s talk about ReactJS', 'Javascript talks',[ flame])}>
+                <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[0], users.slice(1, 10), 'Let\'s talk about ReactJS', 'Javascript talks','Today 2:00 PM',[ flame])}>
                     <IonCardHeader>
                         <IonCardSubtitle><IonIcon style={{
             backgroundColor: 'green',
             borderRadius: '50%'
           }} icon={flame}/> Javascript talks</IonCardSubtitle>
                         <IonCardTitle>Let's talk about ReactJS</IonCardTitle>
-                        <IonCardSubtitle>2:00 PM</IonCardSubtitle>
+                        <IonCardSubtitle>Today 2:00 PM</IonCardSubtitle>
                     </IonCardHeader>
                     <IonGrid>
                         <IonRow>
@@ -157,14 +157,14 @@ const Tab5: React.FC = () => {
                     </IonGrid>
                 </IonCard>
 
-                <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[0], users.slice(1, 15), 'Mobile talks', 'How Ionic can transform mobile development',[flame])}>
+                <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[0], users.slice(1, 15), 'Mobile talks', 'How Ionic can transform mobile development','Today 3:05 PM',[flame])}>
                 
                     <IonCardHeader>
                         <IonCardSubtitle><IonIcon  style={{
             backgroundColor: 'green',
             borderRadius: '50%'}} icon={flame}/> Mobile talks</IonCardSubtitle>
                         <IonCardTitle> How Ionic can transform mobile development</IonCardTitle>
-                        <IonCardSubtitle>3:05 PM</IonCardSubtitle>
+                        <IonCardSubtitle>Today 3:05 PM</IonCardSubtitle>
                     </IonCardHeader>
                     <IonGrid>
                     <IonRow>
@@ -189,14 +189,14 @@ const Tab5: React.FC = () => {
                         </IonRow>
                     </IonGrid>
                 </IonCard>
-                <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[16], users.slice(0, 15), 'Mobile talks', 'How Ionic can transform mobile development',[flame])}>
+                <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[16], users.slice(0, 15), 'Mobile talks', 'How Ionic can transform mobile development','Today 3:30 PM',[flame])}>
                 
                     <IonCardHeader>
                         <IonCardSubtitle><IonIcon  style={{
             backgroundColor: 'green',
             borderRadius: '50%'}} icon={flame}/> Mobile talks</IonCardSubtitle>
                         <IonCardTitle>How to  Use Capacitors to access native features</IonCardTitle>
-                        <IonCardSubtitle>3:30 PM</IonCardSubtitle>
+                        <IonCardSubtitle>Today 3:30 PM</IonCardSubtitle>
                     </IonCardHeader>
                     <IonGrid>
                     <IonRow>
@@ -221,14 +221,14 @@ const Tab5: React.FC = () => {
                         </IonRow>
                     </IonGrid>
                 </IonCard>
-                <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[11], users.slice(0, 10), 'Design talks', 'Does SASS give you an added advantage',[flame])}>
+                <IonCard className="happening-now-card" onClick={() => navigateToDetails(users[11], users.slice(0, 10), 'Design talks', 'Does SASS give you an added advantage','Today 4:10 PM',[flame])}>
                 
                     <IonCardHeader>
                         <IonCardSubtitle><IonIcon  style={{
             backgroundColor: 'green',
             borderRadius: '50%'}} icon={flame}/> Design talks</IonCardSubtitle>
                         <IonCardTitle>Does SASS give you an added advantage</IonCardTitle>
-                        <IonCardSubtitle>4:10 PM</IonCardSubtitle>
+                        <IonCardSubtitle>Today 4:10 PM</IonCardSubtitle>
                     </IonCardHeader>
                     <IonGrid>
                     <IonRow>
@@ -253,14 +253,14 @@ const Tab5: React.FC = () => {
                         </IonRow>
                     </IonGrid>
                 </IonCard>
-                <IonCard  className="happening-now-card" onClick={() => navigateToDetails(users[6], users.slice(0, 16), 'Business Talk', 'Build A startUp from scratch',[flame])}>
+                <IonCard  className="happening-now-card" onClick={() => navigateToDetails(users[6], users.slice(0, 16), 'Business Talk', 'Build A startUp from scratch','Today 3:50 PM',[flame])}>
                 
                     <IonCardHeader>
                         <IonCardSubtitle><IonIcon  style={{
             backgroundColor: 'green',
             borderRadius: '50%'}} icon={flame}/> Business Talk</IonCardSubtitle>
                         <IonCardTitle>Build A startUp from scratch</IonCardTitle>
-                        <IonCardSubtitle>3:50 PM</IonCardSubtitle>
+                        <IonCardSubtitle>Today 3:50 PM</IonCardSubtitle>
                     </IonCardHeader>
                     <IonGrid>
                     <IonRow>

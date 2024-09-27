@@ -31,6 +31,7 @@ import Rooms from './pages/Rooms';
 import { ToastContainer } from 'react-toastify';
 import List from './pages/List';
 import Notes from './pages/Notes';
+import Community from './pages/Community';
 
 setupIonicReact();
 
@@ -46,6 +47,7 @@ const App: React.FC = () => (
         <Route path="/app/list" component={List} />
         <Route path="/rooms" component={Rooms} exact />
         <Route path="/notes" component={Notes} exact />
+        <Route path="/community" component={Community} exact />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

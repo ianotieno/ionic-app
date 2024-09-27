@@ -20,3 +20,23 @@ ion-tab-bar {
   .custom-fab {
     bottom: 30px; /* Adjust the value as needed */
   }
+  ion-tab-button.tab-selected {
+    color: white; /* Change the color to white when selected */
+  }
+  
+  /* Optional: Style for the tab bar background */
+  ion-tab-bar {
+    background-color: #000; /* Change the background color of the tab bar */
+  }
+  
+  /* Optional: Style for the tab button icon and label */
+  ion-tab-button ion-icon,
+  ion-tab-button ion-label {
+    color: #fff; /* Change the default color of the icon and label */
+  }
+  
+  /* Optional: Style for the selected tab button icon and label */
+  ion-tab-button.tab-selected ion-icon,
+  ion-tab-button.tab-selected ion-label {
+    color: #fff; /* Ensure the icon and label are white when selected */
+  }

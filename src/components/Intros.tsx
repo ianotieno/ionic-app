@@ -21,7 +21,7 @@ const Intros: React.FC<ContainerProps> = ({ onFinish }) => {
         <Swiper>
             <SwiperSlide>
                 <div className="ion-text-center ion-padding">
-                    <img src={details1} alt="react" className="intro-image" width={350} />
+                    <img src={details1} alt="react" className="intro-image" />
                     <IonText>
                         <h3>Build Awesome Apps with Ionic React</h3>
                     </IonText>
@@ -30,7 +30,7 @@ const Intros: React.FC<ContainerProps> = ({ onFinish }) => {
             </SwiperSlide>
             <SwiperSlide>
                 <div className="ion-text-center ion-padding">
-                    <img src={details2} alt="react" className="intro-image" width={350}/>
+                    <img src={details2} alt="react" className="intro-image" />
                     <IonText>
                         <h3>Build Awesome Apps with Ionic Angular</h3>
                     </IonText>
@@ -41,7 +41,7 @@ const Intros: React.FC<ContainerProps> = ({ onFinish }) => {
             </SwiperSlide>
             <SwiperSlide>
                 <div className="ion-text-center ion-padding">
-                    <img src={details3} alt="react" className="intro-image " width={350}/>
+                    <img src={details3} alt="react" className="intro-image" />
                     <IonText>
                         <h3>Build Awesome Apps with Ionic Native Android</h3>
                     </IonText>

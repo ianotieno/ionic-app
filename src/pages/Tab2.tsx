@@ -35,21 +35,11 @@ const Tab2: React.FC = () => {
             Join our community today and take the first step towards becoming a professional mobile app developer. Together, we code the future.
           </p>
         </div>
-        <CreateAnimation
-          ref={animationRef}
-          duration={2000}
-          iterations={Infinity}
-          delay={1000}
-          keyframes={[
-            { offset: 0, transform: 'scale(1)', opacity: '1' },
-            { offset: 0.5, transform: 'scale(1.5)', opacity: '0.5' },
-            { offset: 1, transform: 'scale(1)', opacity: '1' },
-          ]}
-        >
+       
           <IonButton expand="block" color="tertiary" className="ion-margin" onClick={joinCommunity}>
             Join MacAgutu Community
           </IonButton>
-        </CreateAnimation>
+       
       </IonContent>
     </IonPage>
   );

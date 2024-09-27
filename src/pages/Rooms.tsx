@@ -5,8 +5,9 @@ import { exitOutline, flame, micOutline, peopleOutline } from 'ionicons/icons';
 
 const Rooms: React.FC = () => {
     const location = useLocation<any>();
+    const [loading, setLoading] = useState<boolean>(true);
     const history = useHistory();  // Get history object to navigate programmatically
-    const { speaker, listeners, title, subtitle, icon } = location.state || { speaker: null, listeners: [], title: '', subtitle: '', icon: [] };
+    const { speaker, listeners, title, subtitle,subtitle2, icon } = location.state || { speaker: null, listeners: [], title: '', subtitle: '',subtitle2:'', icon: [] };
     
     const [showAlert, setShowAlert] = useState(false);  // State to control alert visibility
 
@@ -24,7 +25,7 @@ const Rooms: React.FC = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>Room Details</IonTitle>
+                    <IonTitle>Selected Channel</IonTitle>
                     {/* Exit icon to trigger pop-up */}
                     <IonIcon 
                         className="ion-padding" 
@@ -37,7 +38,7 @@ const Rooms: React.FC = () => {
             </IonHeader>
 
             <IonContent className="ion-padding">
-                {/* Display the card header data */}
+                
                 <IonCard className="happening-now-card">
                     <IonCardHeader>
                         <IonCardSubtitle><IonIcon style={{
@@ -45,6 +46,7 @@ const Rooms: React.FC = () => {
             borderRadius: '50%'
           }} icon={flame} /> {title}</IonCardSubtitle>
                         <IonCardTitle> {subtitle}</IonCardTitle>
+                        <IonCardSubtitle> {subtitle2}</IonCardSubtitle>
                     </IonCardHeader>
 
                     {/* Display the speaker */}
