@@ -12,7 +12,7 @@ ion-tab-bar {
     height: 50px;
     width: 100%;
     position: relative;
-    color: rgb(243, 246, 243);
+    color: rgb(139, 240, 139);
     transform: translate(-50%, -30%);
     left: 50%;
     border-radius: 25px;
@@ -21,24 +21,24 @@ ion-tab-bar {
     bottom: 30px; /* Adjust the value as needed */
   }
   ion-tab-button.tab-selected {
-    color: rgb(236, 239, 236); /* Change the color to white when selected */
+    color: rgb(115, 117, 115); /* Change the color to white when selected */
   }
   
   /* Optional: Style for the tab bar background */
   ion-tab-bar {
-    background-color: #000; /* Change the background color of the tab bar */
+    background-color: #141414; /* Change the background color of the tab bar */
   }
   
   /* Optional: Style for the tab button icon and label */
   ion-tab-button ion-icon,
   ion-tab-button ion-label {
-    color: #070707; /* Change the default color of the icon and label */
+    color: #f50a0a; /* Change the default color of the icon and label */
   }
   
   /* Optional: Style for the selected tab button icon and label */
   ion-tab-button.tab-selected ion-icon,
   ion-tab-button.tab-selected ion-label {
-    color: rgb(7, 7, 7);  /* Ensure the icon and label are white when selected */
+    color: rgb(17, 18, 17);  /* Ensure the icon and label are white when selected */
   }
 
   

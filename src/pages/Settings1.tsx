@@ -104,7 +104,7 @@ const Settings1: React.FC = () => {
                     </IonItem>
                 ))}</IonCard>
                 
-                <IonButton  expand="full" routerLink="/" routerDirection="root" color="tertiary">
+                <IonButton  expand="full"  routerLink="/" routerDirection="root" color="tertiary">
                     <IonIcon slot="start" icon={logOutOutline} />
                     Logout
                 </IonButton>

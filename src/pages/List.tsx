@@ -8,18 +8,18 @@ import {
   IonLabel,
   IonRouterOutlet,
 } from '@ionic/react';
-import { homeOutline, person, globe, cog } from 'ionicons/icons';
+import { homeOutline, person, globe, cog, home } from 'ionicons/icons';
 import Tab3 from './Tab3';
 import Tab4 from './Tab4';
 import Tab5 from './Tab5';
 import Settings1 from './Settings1';
-import './List.css'; // Import the custom CSS file
+import './List.css'
 
 const List: React.FC = () => (
   <IonTabs>
     <IonTabBar slot="bottom">
       <IonTabButton tab="tab5" href="/app/list/tab5">
-        <IonIcon icon={homeOutline} />
+        <IonIcon icon={home} />
         <IonLabel>Home</IonLabel>
       </IonTabButton>
       <IonTabButton tab="tab3" href="/app/list/tab3">

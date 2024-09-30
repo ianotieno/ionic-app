@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { homeOutline, searchOutline, addOutline, personOutline, notificationsOutline, micOutline, peopleOutline, wifi, flame } from 'ionicons/icons';
 import '../pages/Tab5.css'
 import { Route, useHistory } from 'react-router-dom';
-
+import './Tab5.css'
 import Rooms from './Rooms'
 const Tab5: React.FC = () => {
     const [users, setUsers] = useState<any[]>([]);
