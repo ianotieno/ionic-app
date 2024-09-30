@@ -55,7 +55,7 @@ const Tab5: React.FC = () => {
             <IonContent className="ion-padding">
                 <h2>Upcoming</h2>
                 {/* Card for upcoming talk */}
-                <IonCard className="upcoming-card" onClick={() => navigateToDetails(users[0], users.slice(1, 10), 'The future of design systems', 'Design talks','Tommorrow 5:00 PM',[ flame])}>
+                <IonCard className="upcoming-card"  onClick={() => navigateToDetails(users[0], users.slice(1, 10), 'The future of design systems', 'Design talks','Tommorrow 5:00 PM',[ flame])}>
                     <IonCardHeader>
                         <IonCardSubtitle>  <IonIcon  style={{
             backgroundColor: 'white',
